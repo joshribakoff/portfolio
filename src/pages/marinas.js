@@ -9,7 +9,23 @@ import map2 from "./marinas/map2.jpg";
 import mapg from "./marinas/mapg.png";
 import mapf from "./marinas/mapf.png";
 
-export default () => (
+const Gallery = ({children}) => <div style={{
+  display: 'flex',
+  flexFlow: 'row wrap'
+}}>
+  {children}
+</div>
+
+const GalleryItem = ({src}) => <div style={{
+  margin: ".5vw",
+  flex: "auto",
+  width: "200px"
+}}>
+  <img src={src} style={{ width: "100%", height: "auto" }} />
+</div>
+
+
+export default ({src}) => (
   <div>
     <h1>Marinas.com</h1>
     <p>
@@ -27,7 +43,6 @@ export default () => (
       information". The client was a cartography partner with Garmin
       coordinating aerial photo shoots of coastal locations.
     </p>
-
     <p>
       In response to receiving stacks of DVDs on my door step regularly, I
       developed a "human in the loop" tool used by the photographers &amp;
@@ -38,17 +53,11 @@ export default () => (
       these suggestions &amp; associated confidence percentage, and handled all
       book-keeping for worker compensation.
     </p>
-    <div style={{ display: "flex", flexFlow: "row wrap" }}>
-      <div style={{ margin: ".5vw", flex: "auto", width: "200px" }}>
-        <img src={page2} style={{ width: "100%", height: "auto" }} />
-      </div>
-      <div style={{ margin: ".5vw", flex: "auto", width: "200px" }}>
-        <img src={page3} style={{ width: "100%", height: "auto" }} />
-      </div>
-      <div style={{ margin: ".5vw", flex: "auto", width: "200px" }}>
-        <img src={page4} style={{ width: "100%", height: "auto" }} />
-      </div>
-    </div>
+    <Gallery>
+      <GalleryItem src={page1} />
+      <GalleryItem src={page2} />
+      <GalleryItem src={page4} />
+    </Gallery>
     <p>
       I mentored a team of designers in best practices such as HTML &amp; CSS.
       It was also very important to the project stakeholders to show off the
