@@ -1,5 +1,7 @@
 import React from "react";
 import Link from "gatsby-link";
+import Gallery from "../components/Gallery";
+import GalleryItem from "../components/GalleryItem";
 import page1 from "./marinas/page1.jpg";
 import page2 from "./marinas/page2.jpg";
 import page3 from "./marinas/page3.jpg";
@@ -9,23 +11,7 @@ import map2 from "./marinas/map2.jpg";
 import mapg from "./marinas/mapg.png";
 import mapf from "./marinas/mapf.png";
 
-const Gallery = ({children}) => <div style={{
-  display: 'flex',
-  flexFlow: 'row wrap'
-}}>
-  {children}
-</div>
-
-const GalleryItem = ({src}) => <div style={{
-  margin: ".5vw",
-  flex: "auto",
-  width: "200px"
-}}>
-  <img src={src} style={{ width: "100%", height: "auto" }} />
-</div>
-
-
-export default ({src}) => (
+export default ({ src }) => (
   <div>
     <h1>Marinas.com</h1>
     <p>
@@ -66,12 +52,15 @@ export default ({src}) => (
       sizes in 2006.
     </p>
     <p>
-      <img src={map} style={{
-        width: 350,
-        float: 'left',
-        marginRight: 15,
-        marginBottom: 15
-      }} />
+      <img
+        src={map}
+        style={{
+          width: 350,
+          float: "left",
+          marginRight: 15,
+          marginBottom: 15
+        }}
+      />
       A bit into the project, Google Maps had just launched, and MapQuest had
       quoted the owners $70,000/yr and they had some concerns with Google's
       terms & conditions which reserved the right to run ads on the maps (their
