@@ -2,6 +2,5 @@ import React from "react"
 import Link from "gatsby-link"
 
 export default () => <div>
-    Home
-    <Link to="/marinas/">marinas.com</Link>
+    Welcome to my personal portfolio website. Please select a project to view my work.
 </div>
