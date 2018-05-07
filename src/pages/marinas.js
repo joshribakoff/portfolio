@@ -13,13 +13,21 @@ export default () => (
   <div>
     <h1>Marinas.com</h1>
     <p>
-      <img src={page3} style={{maxWidth:200, float: 'left', marginRight: 15, marginBottom: 15}} />
+      <img
+        src={page3}
+        style={{
+          maxWidth: 200,
+          float: "left",
+          marginRight: 15,
+          marginBottom: 15
+        }}
+      />
       As a high school senior in 2005, when drones nor Google Maps existed, I
       took on a freelance project to create "The premier website for marine
       information". The client was a cartography partner with Garmin
       coordinating aerial photo shoots of coastal locations.
     </p>
-    
+
     <p>
       In response to receiving stacks of DVDs on my door step regularly, I
       developed a "human in the loop" tool used by the photographers &amp;
@@ -42,8 +50,11 @@ export default () => (
       </div>
     </div>
     <p>
-      I mentored a team of designers in best practices such as HTML &amp; CSS. It was also very important to the project stakeholders to show off
-      the high resolution images at every opportunity, which was at a direct conflict with the state of internet speeds &amp; and screen resolution sizes in 2006.
+      I mentored a team of designers in best practices such as HTML &amp; CSS.
+      It was also very important to the project stakeholders to show off the
+      high resolution images at every opportunity, which was at a direct
+      conflict with the state of internet speeds &amp; and screen resolution
+      sizes in 2006.
     </p>
     <p>
       A bit into the project, Google Maps had just launched, and MapQuest had
