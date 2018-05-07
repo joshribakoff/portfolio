@@ -18,26 +18,34 @@ export default ({ src }) => (
       <img
         src={page3}
         style={{
-          maxWidth: 350,
+          maxWidth: 450,
           float: "left",
-          marginRight: 15,
-          marginBottom: 15
+          marginRight: 25,
+          marginBottom: 25
         }}
       />
       As a high school senior in 2005, when drones nor Google Maps existed, I
-      took on a freelance project to create "The premier website for marine
-      information". The client was a cartography partner with Garmin
-      coordinating aerial photo shoots of coastal locations.
+      took on a freelance project to create <em>"The premier website for marine
+      information"</em>. The client was a cartography partner with Garmin
+      coordinating aerial photo shoots of coastal locations in a dozen countries.
     </p>
-    <p>
-      In response to receiving stacks of DVDs on my door step regularly, I
+    <blockquote style={{ clear: "both" }}>
+      <p>
+        <em>
+          I took on a freelance project to create "The premier website for
+          marine information"
+        </em>
+      </p>
+    </blockquote>
+    <p style={{ clear: "both" }}>
+      In response a plethora of DVDs showing up on my door step, I
       developed a "human in the loop" tool used by the photographers &amp;
-      helicopter pilots in the field. The tool made use of artificial
-      intelligence algorithms to extract GPS coordinates from metadata. A
-      recommendation would be made on how to cluster, classify,and catalog data
-      by coalescing numerous data sources. The human in the loop would review
-      these suggestions &amp; associated confidence percentage, and handled all
-      book-keeping for worker compensation.
+      pilots to upload photos from in the field. The tool made use of artificial
+      intelligence algorithms to extract GPS coordinates from metadata.
+      Recommendations were made along with a confidence percentage regarding how
+      to cluster, classify, and catalog data by coalescing numerous data
+      sources. Workers reviewed &amp; made adjustments as needed. The system had
+      built in book-keeping for compensating the workers.
     </p>
     <p>
       <Gallery>
