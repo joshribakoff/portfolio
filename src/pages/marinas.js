@@ -32,7 +32,7 @@ export default ({src}) => (
       <img
         src={page3}
         style={{
-          maxWidth: 200,
+          maxWidth: 350,
           float: "left",
           marginRight: 15,
           marginBottom: 15
@@ -53,12 +53,12 @@ export default ({src}) => (
       these suggestions &amp; associated confidence percentage, and handled all
       book-keeping for worker compensation.
     </p>
-    <Gallery>
-      <GalleryItem src={page1} />
-      <GalleryItem src={page2} />
-      <GalleryItem src={page4} />
-    </Gallery>
     <p>
+      <Gallery>
+        <GalleryItem src={page1} />
+        <GalleryItem src={page2} />
+        <GalleryItem src={page4} />
+      </Gallery>
       I mentored a team of designers in best practices such as HTML &amp; CSS.
       It was also very important to the project stakeholders to show off the
       high resolution images at every opportunity, which was at a direct
@@ -66,6 +66,12 @@ export default ({src}) => (
       sizes in 2006.
     </p>
     <p>
+      <img src={map} style={{
+        width: 350,
+        float: 'left',
+        marginRight: 15,
+        marginBottom: 15
+      }} />
       A bit into the project, Google Maps had just launched, and MapQuest had
       quoted the owners $70,000/yr and they had some concerns with Google's
       terms & conditions which reserved the right to run ads on the maps (their
@@ -83,5 +89,9 @@ export default ({src}) => (
       was built in Adobe Flash using Action Script, as HTML5 was not yet
       prevalent at the time & this was before jQuery even hit the scene.
     </p>
+    <Gallery>
+      <GalleryItem src={map2} />
+      <GalleryItem src={mapf} />
+    </Gallery>
   </div>
 );
