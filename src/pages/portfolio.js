@@ -3,7 +3,12 @@ import Link from "gatsby-link";
 import styled from 'styled-components'
 
 import marinas from './marinas/page3.jpg'
-import fame from './famefitness/famefit-cal.png';
+import fame from './famefitness/famefit-cal.png'
+import vf from './vehiclefits/website.png'
+import paquin from './paquin.png'
+import isite from './isite.png'
+import illuminati from './illuminati.jpeg'
+import video from './video.jpeg'
 
 const Page = styled.div`
 padding: 1.25rem 1rem;
@@ -92,6 +97,19 @@ text-shadow: none;
 background-image: none;
 `
 
+const Tag = styled.a`
+display: inline-block;
+background-color: rgba(175,34,34,.8);
+color: #FFF;
+padding: 4px 10px;
+font-size: 13px;
+text-transform: uppercase;
+text-shadow: none;
+background-image: none;
+margin-right: 5px;
+margin-bottom: 5px;
+`
+
 export default ({ src }) => (
   <Page>
     <h1>Portfolio</h1>
@@ -101,7 +119,7 @@ export default ({ src }) => (
         <Time>
           <Label>
             Feb 2015
-                </Label>
+          </Label>
         </Time>
         <Contents>
           <Description>
@@ -112,9 +130,32 @@ export default ({ src }) => (
               <li>a drag & drop interactive online calendar menu designer</li>
               <li>a network of thousands of IOT devices &amp; custom digital signage administration software &amp; campaign designer</li>
             </ul>
+            <h3>Technologies</h3>
+            <Tag href="http://docker.com/" target="_blank">Docker</Tag>
+            <Tag href="https://www.vagrantup.com/" target="_blank">Vagrant</Tag>
+            <Tag href="https://www.ansible.com/" target="_blank">Ansible</Tag>
+            <Tag href="https://aws.amazon.com/" target="_blank">AWS</Tag>
+            <Tag href="https://www.mongodb.com/" target="_blank">Mongo</Tag>
+            <Tag href="https://www.mysql.com/" target="_blank">Mysql</Tag>
+            <Tag href="https://nodejs.org/en/" target="_blank">NodeJS</Tag>
+            <Tag href="http://php.net/" target="_blank">PHP</Tag>
+            <Tag href="https://symfony.com/" target="_blank">Symfony</Tag>
+            <Tag href="https://silex.symfony.com/" target="_blank">Silex</Tag>
+            <Tag href="https://angularjs.org/" target="_blank">Angular JS</Tag>
+            <Tag href="https://reactjs.org/" target="_blank">React</Tag>
+            <Tag href="https://redux.js.org/" target="_blank">Redux</Tag>
+            <Tag href="https://webpack.js.org/" target="_blank">Webpack</Tag>
+            <Tag href="http://babeljs.io/" target="_blank">Babel</Tag>
+            <Tag href="https://socket.io/" target="_blank">SocketIO</Tag>
+            <Tag href="http://pm2.keymetrics.io/" target="_blank">Pm2</Tag>
+            <Tag href="http://supervisord.org/" target="_blank">Supervisor</Tag>
+            <Tag href="https://graphql.org/" target="_blank">GraphQL</Tag>
+            <Tag href="http://gearman.org/" target="_blank">Gearman</Tag>
+            <Tag href="https://www.ffmpeg.org/" target="_blank">ffmpeg</Tag>
+            <Tag href="https://developers.google.com/web/updates/2017/04/headless-chrome" target="_blank">Headless Chrome</Tag>
           </Description>
           <Photo>
-            {/* <img src="https://placekitten.com/800/500" style={{ maxWidth: '100%' }} /> */}
+            <img src={isite} style={{ maxWidth: '100%' }} />
           </Photo>
         </Contents>
         <Divider />
@@ -135,9 +176,15 @@ export default ({ src }) => (
               <li>a membership signup &amp; billing management platform</li>
               <li>a video transcoding pipeline with preview thumbnails &amp; playback heatmaps for analytics</li>
             </ul>
+            <h3>Technologies</h3>
+            <Tag href="https://www.mysql.com/" target="_blank">Mysql</Tag>
+            <Tag href="http://php.net/" target="_blank">PHP</Tag>
+            <Tag href="https://silex.symfony.com/" target="_blank">Silex</Tag>
+            <Tag href="https://angularjs.org/" target="_blank">Angular JS</Tag>
+            <Tag href="https://aws.amazon.com/" target="_blank">AWS</Tag>
           </Description>
           <Photo>
-            {/* <img src="https://placekitten.com/800/500" style={{ maxWidth: '100%' }} /> */}
+            <img src={video} style={{ maxWidth: '100%' }} />
           </Photo>
         </Contents>
         <Divider />
@@ -158,9 +205,13 @@ export default ({ src }) => (
               <li>Healthcare re-imbursement portal for Optum insurance</li>
               <li>Secure encrypted messaging platform iRemedy integrated with withings scale &amp; blood pressure monitors</li>
             </ul>
+            <h3>Technologies</h3>
+            <Tag href="http://php.net/" target="_blank">PHP</Tag>
+            <Tag href="https://www.magento.com/" target="_blank">Magento</Tag>
+            <Tag href="https://jquery.com/" target="_blank">Jquery</Tag>
           </Description>
           <Photo>
-            {/* <img src="https://placekitten.com/800/500" style={{ maxWidth: '100%' }} /> */}
+            <img src={paquin} style={{ maxWidth: '100%' }} />
           </Photo>
         </Contents>
         <Divider />
@@ -181,9 +232,13 @@ export default ({ src }) => (
               <li>Wrote a RTF to HTML / HTML to RTF conversion algorithm</li>
               <li>50+ variations of legal contracts for PDF / CUPs document generation &amp; printing system</li>
             </ul>
+            <h3>Technologies</h3>
+            <Tag href="http://php.net/" target="_blank">PHP</Tag>
+            <Tag href="https://framework.zend.com/" target="_blank">Zend</Tag>
+            <Tag href="https://jquery.com/" target="_blank">Jquery</Tag>
           </Description>
           <Photo>
-            {/* <img src="https://placekitten.com/800/500" style={{ maxWidth: '100%' }} /> */}
+            <img src={illuminati} style={{ maxWidth: '100%' }} />
           </Photo>
         </Contents>
         <Divider />
@@ -199,13 +254,17 @@ export default ({ src }) => (
         <Contents>
           <Description>
             <h2>Fame Fitness</h2>
-            <p></p>
-            <p></p>
+            <p>Turn-key luxury fitness management</p>
+            <p>Fame Fitness provided a white glove experience for high rises &amp; luxury condominiums in Miami, staffing the gyms &amp; providing one on one personal training &amp; massage</p>
             <ul>
-              <li></li>
-              <li></li>
+              <li>a self service booking system with credit card payments &amp; credit system</li>
+              <li>a personalized health &amp; vital tracker</li>
             </ul>
             <Button to="/famefitness/">More details</Button>
+            <h3>Technologies</h3>
+            <Tag href="http://php.net/" target="_blank">PHP</Tag>
+            <Tag href="https://jquery.com/" target="_blank">Jquery</Tag>
+            <Tag href="https://www.mysql.com/" target="_blank">Mysql</Tag>
           </Description>
           <Photo>
             <img src={fame} style={{ maxWidth: '100%' }} />
@@ -223,15 +282,20 @@ export default ({ src }) => (
         <Contents>
           <Description>
             <h2>Vehicle Fits</h2>
-            <p></p>
-            <p></p>
+            <p>Aftermarket parts lookup tool</p>
+            <p>I initially founded Vehicle Fits to provide a year/make/model lookup tool, it quickly expanded to a generalized fitments tool used by multiple vertical industries.</p>
             <ul>
-              <li></li>
-              <li></li>
+              <li>a dynamic schema system / custom fields engine</li>
+              <li>industry specific plugins like wheel &amp; tire fitments, bolt patterns tools, bulk import tools, e tc..</li>
             </ul>
+            <h3>Technologies</h3>
+            <Tag href="http://php.net/" target="_blank">PHP</Tag>
+            <Tag href="https://jquery.com/" target="_blank">Jquery</Tag>
+            <Tag href="https://www.mysql.com/" target="_blank">Mysql</Tag>
+            <Tag href="https://www.magento.com/" target="_blank">Magento</Tag>
           </Description>
           <Photo>
-            {/* <img src="https://placekitten.com/800/500" style={{ maxWidth: '100%' }} /> */}
+            <img src={vf} style={{ maxWidth: '100%' }} />
           </Photo>
         </Contents>
         <Divider />
@@ -253,6 +317,10 @@ export default ({ src }) => (
               <li>a turn-key data ingestion system using geo-clustering</li>
             </ul>
             <Button to="/marinas/">More details</Button>
+            <h3>Technologies</h3>
+            <Tag href="http://php.net/" target="_blank">PHP</Tag>
+            <Tag href="https://jquery.com/" target="_blank">Jquery</Tag>
+            <Tag href="https://www.mysql.com/" target="_blank">Mysql</Tag>
           </Description>
           <Photo>
             <img src={marinas} style={{ maxWidth: '100%' }} />
