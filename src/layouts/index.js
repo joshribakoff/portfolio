@@ -92,14 +92,12 @@ export default ({ children }) => (
         <Title>Full Stack Web Developer</Title>
         <ListOfLinks>
           <ListLink to="/">Home</ListLink>
-          <ListLink to="/marinas/">Portfolio</ListLink>
+          <ListLink to="/portfolio/">Portfolio</ListLink>
         </ListOfLinks>
       </SidebarBg>
     </Sidebar>
     <Content>
-      <div style={{maxWidth: 850}}>
-        {children()}
-      </div>
+      {children()}
     </Content>
   </div>
 );
