@@ -18,7 +18,7 @@ export default ({ src }) => (
       <img
         src={page3}
         style={{
-          maxWidth: 450,
+          maxWidth: '100%',
           float: "left",
           marginRight: 25,
           marginBottom: 25
