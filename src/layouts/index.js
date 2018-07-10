@@ -12,10 +12,8 @@ const ListLink = props => (
 );
 
 const Page = styled.div`
-overflow: auto;
 @media (min-width: 700px) {
   display: flex;
-  overflow: hidden;
 }
 height: 100vh;
 width: 100vw;
@@ -37,16 +35,17 @@ const Sidebar = styled.aside`
 background-image: url(${code});
 @media (min-width: 700px) {
   width: 350px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
 }
 background-size: cover;
-position: relative;
 `
 
 const Content = styled.div`
 padding: 1.25rem 1rem;
-overflow: auto;
 @media (min-width: 700px) {
-  width: calc(100vw - 350px);
+  margin-left: 350px;
 }
 `
 
