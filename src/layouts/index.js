@@ -93,6 +93,7 @@ export default ({ children }) => (
         <ListOfLinks>
           <ListLink to="/">Home</ListLink>
           <ListLink to="/portfolio/">Portfolio</ListLink>
+          <ListLink to="/contact/">Contact</ListLink>
         </ListOfLinks>
       </SidebarBg>
     </Sidebar>
