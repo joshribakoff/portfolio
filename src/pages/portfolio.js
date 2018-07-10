@@ -3,7 +3,6 @@ import Link from "gatsby-link";
 import styled from 'styled-components'
 
 import marinas from './marinas/page3.jpg'
-import fame from './famefitness/famefit-cal.png';
 
 const Page = styled.div`
 padding: 1.25rem 1rem;
@@ -124,7 +123,7 @@ export default ({ src }) => (
         <Time>
           <Label>
             Jan 2014
-          </Label>
+                </Label>
         </Time>
         <Contents>
           <Description>
@@ -184,31 +183,6 @@ export default ({ src }) => (
           </Description>
           <Photo>
             {/* <img src="https://placekitten.com/800/500" style={{ maxWidth: '100%' }} /> */}
-          </Photo>
-        </Contents>
-        <Divider />
-      </Element>
-
-
-      <Element>
-        <Time>
-          <Label>
-            Mar 2013
-          </Label>
-        </Time>
-        <Contents>
-          <Description>
-            <h2>Fame Fitness</h2>
-            <p></p>
-            <p></p>
-            <ul>
-              <li></li>
-              <li></li>
-            </ul>
-            <Button to="/famefitness/">More details</Button>
-          </Description>
-          <Photo>
-            <img src={fame} style={{ maxWidth: '100%' }} />
           </Photo>
         </Contents>
         <Divider />
