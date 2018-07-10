@@ -11,14 +11,6 @@ const ListLink = props => (
   </li>
 );
 
-const Page = styled.div`
-@media (min-width: 700px) {
-  display: flex;
-}
-height: 100vh;
-width: 100vw;
-`
-
 const SidebarBg = styled.div`
 background-color: rgba(0, 0, 0, 0.8);
 padding: 45px;
@@ -91,7 +83,7 @@ a {
 `
 
 export default ({ children }) => (
-  <Page>
+  <div>
     <Sidebar>
       <SidebarBg>
         <Avatar src={photo} />
@@ -108,5 +100,5 @@ export default ({ children }) => (
         {children()}
       </div>
     </Content>
-  </Page>
+  </div>
 );
