@@ -12,7 +12,7 @@ const ListLink = props => (
 );
 
 const SidebarBg = styled.div`
-background-color: rgba(0, 0, 0, 0.8);
+background-color: rgba(0, 0, 0, 0.6);
 padding: 45px;
 @media (min-width: 700px) {
   position: absolute;
@@ -35,7 +35,7 @@ background-size: cover;
 `
 
 const Content = styled.div`
-padding: 1.25rem 1rem;
+min-height: 100vh;
 @media (min-width: 700px) {
   margin-left: 350px;
 }

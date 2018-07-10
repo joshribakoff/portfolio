@@ -1,5 +1,7 @@
 import React from "react";
 import Link from "gatsby-link";
+import styled from 'styled-components'
+
 import Gallery from "../components/Gallery";
 import GalleryItem from "../components/GalleryItem";
 import page1 from "./marinas/page1.jpg";
@@ -11,8 +13,12 @@ import map2 from "./marinas/map2.jpg";
 import mapg from "./marinas/mapg.png";
 import mapf from "./marinas/mapf.png";
 
+const Page = styled.div`
+padding: 1.25rem 1rem;
+`
+
 export default ({ src }) => (
-  <div>
+  <Page>
     <h1>Marinas.com</h1>
     <p>
       <img
@@ -107,5 +113,5 @@ export default ({ src }) => (
       </p>
     </blockquote>
     <p>When the client later re-evaluated the software offerings for maps, they decided Google Maps was just too compelling compared to re-inventing that wheel. In the longer run I helped switch the maps back to Google Maps because it offered more detailed maps, a richer ecosystem of integrations, and it became obvious Google was going to be very reasonable of a partner. Steve Jobs also eventually killed Flash so we would have had to re-do the UI client anyways.</p>
-  </div>
+  </Page>
 );
