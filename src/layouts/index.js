@@ -44,6 +44,7 @@ padding: 1.25rem 1rem;
 const Avatar = styled.img`
 border-radius: 300px;
 margin: auto;
+margin-bottom: 10px;
 display: block;
 width: 160px;
 height: 150px;
