@@ -148,6 +148,7 @@ export default ({ src }) => (
               <li>a drag & drop interactive online calendar menu designer</li>
               <li>a network of thousands of IOT devices &amp; custom digital signage administration software &amp; campaign designer</li>
             </ul>
+            <Button to="/isite/">More details</Button>
             <h3>Technologies</h3>
             <Tag href="http://docker.com/" target="_blank">Docker</Tag>
             <Tag href="https://www.vagrantup.com/" target="_blank">Vagrant</Tag>
