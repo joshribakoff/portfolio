@@ -9,6 +9,7 @@ import paquin from './paquin.png'
 import isite from './isite.png'
 import illuminati from './illuminati.jpeg'
 import video from './video.jpeg'
+import twitch from './twitch.png'
 
 const Page = styled.div`
 padding: 1.25rem 1rem;
@@ -113,8 +114,25 @@ margin-bottom: 5px;
 export default ({ src }) => (
   <Page>
     <h1>Portfolio</h1>
-    <p>See my works below. Unless stated otherwise, all their back-end and front-end parts were completely done by me.</p>
     <Timeline>
+    <Element>
+        <Time>
+          <Label>
+            August 2018
+          </Label>
+        </Time>
+        <Contents>
+          <Description>
+            <h2>Amazon / Twitch</h2>
+            <p>Senior Software Engineer (react)</p>
+            <p>Twitch is a live streaming video platform owned by Twitch Interactive, a subsidiary of Amazon. </p>
+          </Description>
+          <Photo>
+            <img src={twitch} style={{ maxWidth: '100%' }} />
+          </Photo>
+        </Contents>
+        <Divider />
+      </Element>
       <Element>
         <Time>
           <Label>
@@ -123,7 +141,7 @@ export default ({ src }) => (
         </Time>
         <Contents>
           <Description>
-            <h2>Isite Software</h2>
+            <h2>Isite Software / EMS Linq</h2>
             <p>Distrupting the school lunch room</p>
             <p>Isite Software is a web, mobile &amp; digital signage platform for over 1,000 school districts viewed by millions of students daily</p>
             <ul>
