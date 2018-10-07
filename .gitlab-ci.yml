@@ -3,7 +3,7 @@ image: node:8.12.0
 pages:
   script:
   - npm install
-  - npm install gatsby-cli
+  - npm install gatsby-cli@latest
   - node_modules/.bin/gatsby build
   artifacts:
     paths:
