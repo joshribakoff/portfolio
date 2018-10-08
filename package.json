@@ -8,6 +8,7 @@
     "serve": "gatsby serve"
   },
   "dependencies": {
+    "babel-plugin-transform-regenerator": "^6.26.0",
     "gatsby": "^1.9.250",
     "gatsby-link": "^1.6.40",
     "gatsby-plugin-typography": "^1.7.18",
