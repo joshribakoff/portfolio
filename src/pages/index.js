@@ -1,7 +1,6 @@
 import React from "react"
 import Link from "gatsby-link"
 import styled from 'styled-components'
-import Layout from "../components/layout"
 
 import nasa from './nasa.jpg'
 
@@ -29,12 +28,10 @@ background-image: none;
 border-width: 1px;
 border-style: solid;
 padding: .4em .8em;
-margin-right: 1em;
-margin-bottom: 1em;
 `
 
-export default () => <Layout><Page>
+export default () => <Page>
     <h2 style={{color: 'white', textShadow: '2px 2px 4px rgba(0, 0, 0, .8)', margin: 0, marginBottom: 45}}>Hi, I'm Josh.</h2>
     <h3 style={{color: 'white', textShadow: '2px 2px 4px rgba(0, 0, 0, .8)', lineHeight: 1.5, margin: 0, marginBottom: 65, fontWeight: 200}}>I am a software engineer specialised in both <strong style={{fontWeight: 500}}>front-end and back-end web development</strong>.</h3>
     <Button to='/portfolio/'>Portfolio</Button>
-</Page></Layout>
+</Page>

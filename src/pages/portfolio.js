@@ -1,8 +1,6 @@
 import React from "react";
 import Link from "gatsby-link";
 import styled from 'styled-components'
-import Layout from "../components/layout"
-
 
 import marinas from './marinas/page3.jpg'
 import fame from './famefitness/famefit-cal.png'
@@ -114,7 +112,6 @@ margin-bottom: 5px;
 `
 
 export default ({ src }) => (
-  <Layout>
   <Page>
     <h1>Portfolio</h1>
     <Timeline>
@@ -353,5 +350,4 @@ export default ({ src }) => (
 
     </Timeline>
   </Page>
-  </Layout>
 );

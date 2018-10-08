@@ -1,14 +1,15 @@
-image: node:8.12.0
+image: node:6.10.0
 
 pages:
   script:
-  - npm install -g yarn
-  - yarn && yarn build
+  - npm install
+  - npm install gatsby-cli
+  - node_modules/.bin/gatsby build
   artifacts:
     paths:
     - public
-  # cache:
-  #   paths:
-  #     - node_modules
+  cache:
+    paths:
+      - node_modules
   only:
   - master
