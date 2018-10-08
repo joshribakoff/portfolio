@@ -99,7 +99,7 @@ export default ({ children }) => (
       </SidebarBg>
     </Sidebar>
     <Content>
-      {children()}
+      {children}
     </Content>
   </div>
 );

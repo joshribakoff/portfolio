@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "gatsby-link";
 import styled from 'styled-components'
+import Layout from "../components/layout"
 
 import bookingsCalendar from './famefitness/bookings-calendar.png'
 import classSchedule from './famefitness/class-schedule.png'
@@ -32,6 +33,7 @@ border:1px black solid;
 `
 
 export default () => (
+  <Layout>
   <div>
     <a href="{bookingsCalendar}" target="_blank"><Img src={bookingsCalendar} /></a>
     <a href="{classSchedule}" target="_blank"><Img src={classSchedule} /></a>
@@ -53,4 +55,5 @@ export default () => (
     <a href="{training}" target="_blank"><Img src={training} /></a>
     <a href="{weekView}" target="_blank"><Img src={weekView} /></a>
   </div>
+  </Layout>
 );
