@@ -37,5 +37,4 @@ export default () => <Layout><Page>
     <h2 style={{color: 'white', textShadow: '2px 2px 4px rgba(0, 0, 0, .8)', margin: 0, marginBottom: 45}}>Hi, I'm Josh.</h2>
     <h3 style={{color: 'white', textShadow: '2px 2px 4px rgba(0, 0, 0, .8)', lineHeight: 1.5, margin: 0, marginBottom: 65, fontWeight: 200}}>I am a software engineer specialised in both <strong style={{fontWeight: 500}}>front-end and back-end web development</strong>.</h3>
     <Button to='/portfolio/'>Portfolio</Button>
-    <Button to='/videos/'>Videos</Button>
 </Page></Layout>
