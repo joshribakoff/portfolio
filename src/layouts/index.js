@@ -93,12 +93,27 @@ export default ({ children }) => (
         <ListOfLinks>
           <ListLink to="/">Home</ListLink>
           <ListLink to="/portfolio/">Portfolio</ListLink>
-          <ListLink to="/contact/">Contact</ListLink>
+          <a href="https://www.youtube.com/channel/UCjRZ1UuCCDutlIk_skNvSlw" style={{margin: 5}}>
+            <i className="fab fa-youtube"></i>
+          </a>
+          <a href="https://twitter.com/joshribakoff" style={{margin: 5}}>
+            <i className="fab fa-twitter"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/josh-ribakoff-9a5948152/" style={{margin: 5}}>
+            <i className="fab fa-linkedin"></i>
+          </a>
+          <a href="mailto:josh.ribakoff@gmail.com" style={{margin: 5}}>
+            <i className="far fa-envelope"></i>
+          </a>
+          <a href="tel:1-619-248-8183" style={{margin: 5}}>
+            <i className="fas fa-phone"></i>
+          </a>
         </ListOfLinks>
       </SidebarBg>
     </Sidebar>
     <Content>
       {children()}
     </Content>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" />
   </div>
 );
