@@ -99,6 +99,9 @@ export default ({ children }) => (
           <a href="https://twitter.com/joshribakoff" style={{margin: 5}}>
             <i className="fab fa-twitter"></i>
           </a>
+          <a href="https://github.com/joshribakoff" style={{margin: 5}}>
+            <i className="fab fa-github"></i>
+          </a>
           <a href="https://www.linkedin.com/in/josh-ribakoff-9a5948152/" style={{margin: 5}}>
             <i className="fab fa-linkedin"></i>
           </a>
