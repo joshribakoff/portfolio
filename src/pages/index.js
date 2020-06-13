@@ -1,15 +1,7 @@
 import React from "react";
-import Link from "gatsby-link";
-import styled from "styled-components";
-
-const Page = styled.div`
-  height: 100vh;
-  padding: 45px;
-  padding-top: 65px;
-`;
 
 export default () => (
-  <Page>
+  <div>
     <h1>Hi, I'm Josh.</h1>
     <h2>
       I am a software engineer specialised in both front-end and back-end web
@@ -52,5 +44,5 @@ export default () => (
     <a href="tel:1-619-248-8183" style={{ margin: 3 }}>
       <i className="fas fa-phone"></i>
     </a>
-  </Page>
+  </div>
 );

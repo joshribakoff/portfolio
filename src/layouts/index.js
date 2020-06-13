@@ -10,6 +10,7 @@ const Header = styled.header`
     color: #66fcf1;
     text-decoration: none;
   }
+  padding: 10px;
 `;
 const Avatar = styled.img`
   border-radius: 100%;
@@ -23,6 +24,7 @@ const Nav = styled.ul`
   align-items: center;
   max-width: 800px;
   margin: auto;
+  padding: 0;
   li {
     display: block;
     padding: 0.5em;
@@ -51,7 +53,9 @@ export default ({ children }) => (
         <NavItem to="/portfolio/">About</NavItem> */}
       </Nav>
     </Header>
-    <div style={{ maxWidth: 800, margin: "auto" }}>{children()}</div>
+    <div style={{ maxWidth: 800, margin: "auto", padding: 10 }}>
+      {children()}
+    </div>
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
