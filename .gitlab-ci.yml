@@ -1,15 +1,15 @@
-image: node:6.10.0
+image: node:12.18.0-alpine3.10
 
 pages:
   script:
-  - npm install
-  - npm install gatsby-cli
-  - node_modules/.bin/gatsby build
+    - npm install
+    - npm install gatsby-cli
+    - node_modules/.bin/gatsby build
   artifacts:
     paths:
-    - public
+      - public
   cache:
     paths:
       - node_modules
   only:
-  - master
+    - master
