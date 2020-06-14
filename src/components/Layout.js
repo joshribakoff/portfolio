@@ -49,8 +49,7 @@ export default ({ children }) => (
           </Link>
         </li>
         <NavItem to="/portfolio/">Portfolio</NavItem>
-        {/* <NavItem to="/portfolio/">Blog</NavItem>
-        <NavItem to="/portfolio/">About</NavItem> */}
+        <NavItem to="/blog/">Blog</NavItem>
       </Nav>
     </Header>
     <div style={{ maxWidth: 800, margin: "auto", padding: 10 }}>{children}</div>
