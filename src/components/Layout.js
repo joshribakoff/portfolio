@@ -30,7 +30,7 @@ const Nav = styled.ul`
     padding: 0.5em;
   }
 `;
-const NavItem = (props) => (
+const NavItem = props => (
   <li>
     <Link style={props.style} to={props.to}>
       {props.children}
@@ -53,9 +53,7 @@ export default ({ children }) => (
         <NavItem to="/portfolio/">About</NavItem> */}
       </Nav>
     </Header>
-    <div style={{ maxWidth: 800, margin: "auto", padding: 10 }}>
-      {children()}
-    </div>
+    <div style={{ maxWidth: 800, margin: "auto", padding: 10 }}>{children}</div>
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
