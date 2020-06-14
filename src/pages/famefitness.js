@@ -2,7 +2,7 @@ import React from "react";
 import Link from "gatsby-link";
 import styled from "styled-components";
 
-import Layout from "../components/layout";
+import Layout from "../components/Layout";
 
 import bookingsCalendar from "./famefitness/bookings-calendar.png";
 import classSchedule from "./famefitness/class-schedule.png";

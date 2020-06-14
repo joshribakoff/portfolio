@@ -2,7 +2,7 @@ import React from "react";
 import Link from "gatsby-link";
 import styled from "styled-components";
 
-import Layout from "../components/layout";
+import Layout from "../components/Layout";
 import Gallery from "../components/Gallery";
 import GalleryItem from "../components/GalleryItem";
 import page1 from "./marinas/page1.jpg";
