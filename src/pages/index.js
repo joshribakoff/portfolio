@@ -23,6 +23,8 @@ export default () => (
         WebRTC, WebGL/Canvas Libraries, Algorithms, Data Structures,{" "}
         <strong>Past:</strong> PHP, DevOps, Backend, Angular, MongoDb, MySql
       </p>
+      <Link to="/portfolio/">Portfolio</Link>
+      <hr />
       <a href="https://www.youtube.com/c/JoshRibakoff" style={{ margin: 3 }}>
         <i className="fab fa-youtube"></i>
       </a>
