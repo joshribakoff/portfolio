@@ -50,6 +50,7 @@ export default ({ children }) => (
         </li>
         <NavItem to="/portfolio/">Portfolio</NavItem>
         <NavItem to="/blog/">Blog</NavItem>
+        <NavItem to="https://www.youtube.com/c/JoshRibakoff">Videos</NavItem>
       </Nav>
     </Header>
     <div style={{ maxWidth: 800, margin: "auto", padding: 10 }}>{children}</div>

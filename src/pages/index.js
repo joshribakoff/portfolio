@@ -23,10 +23,7 @@ export default () => (
         WebRTC, WebGL/Canvas Libraries, Algorithms, Data Structures,{" "}
         <strong>Past:</strong> PHP, DevOps, Backend, Angular, MongoDb, MySql
       </p>
-      <a
-        href="https://www.youtube.com/channel/UCjRZ1UuCCDutlIk_skNvSlw"
-        style={{ margin: 3 }}
-      >
+      <a href="https://www.youtube.com/c/JoshRibakoff" style={{ margin: 3 }}>
         <i className="fab fa-youtube"></i>
       </a>
       <a href="https://twitter.com/joshribakoff" style={{ margin: 3 }}>
@@ -40,12 +37,6 @@ export default () => (
         style={{ margin: 3 }}
       >
         <i className="fab fa-linkedin"></i>
-      </a>
-      <a href="mailto:josh.ribakoff@gmail.com" style={{ margin: 3 }}>
-        <i className="far fa-envelope"></i>
-      </a>
-      <a href="tel:1-619-248-8183" style={{ margin: 3 }}>
-        <i className="fas fa-phone"></i>
       </a>
     </div>
   </Layout>
