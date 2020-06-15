@@ -48,8 +48,9 @@ export default ({ children }) => (
             <span style={{ padding: "0.5em" }}>Josh Ribakoff</span>
           </Link>
         </li>
+        <NavItem to="/">About</NavItem>
         <NavItem to="/portfolio/">Portfolio</NavItem>
-        <NavItem to="/blog/">Blog</NavItem>
+        <NavItem to="/musings/">Musings</NavItem>
         <NavItem to="https://www.youtube.com/c/JoshRibakoff">Videos</NavItem>
       </Nav>
     </Header>
