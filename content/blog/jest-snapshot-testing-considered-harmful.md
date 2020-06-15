@@ -1,10 +1,9 @@
 ---
+
 title: "Jest Snapshot Testing Considered Harmful"
 description: "A look at Jest snapshot testing, and the common pitfalls I see developers tend to make"
-date: "Sun Jun 14 2020 19:15:34 GMT-0700 "
----
-
-There is a popular feature in Jest called [snapshot testing](https://jestjs.io/docs/en/snapshot-testing). Developers tend to write these types of tests:
+date: "2020-06-14"
+---There is a popular feature in Jest called [snapshot testing](https://jestjs.io/docs/en/snapshot-testing). Developers tend to write these types of tests:
 
 ```js
 it("renders correctly", () => {
