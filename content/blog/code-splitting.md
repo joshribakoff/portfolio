@@ -24,7 +24,7 @@ With the vendor bundle pattern, you would end up with three bundles:
 
 Is having this giant vendor bundle bad? Like many things, it depends. First, let's consider a user who only loads page A and bounces. They will need to download both **vendors.js** and **pageA.js**, a total of 148k, but in reality no more than 74k of that code could be executed. Even if the user returns later and the code is cached in their browser, there is a cost to parsing & evaling that code which is not mitigated by caching, especially on mobile devices as Sean Larkin points out.
 
-The tradeoff here is that later when the user navigates to page B, they will probably only need to download a 12k bundle. Also the larger vendor bundle can compress better in theory since larger files can benefit more from compression than many smaller files. If you're not using http2, the number of network requests made can also affect your loading time.
+The tradeoff here is that later when the user navigates to page B, they will probably only need to download a 12k bundle. Also the larger vendor bundle can compress better in theory since larger files can benefit more from compression than many smaller files. If you're not using http2, the number of network requests can also affect your loading time.
 
 ## An Alternative Idea For Code Splitting
 
