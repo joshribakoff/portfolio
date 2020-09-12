@@ -1,4 +1,4 @@
-image: node:12.18.0-alpine3.10
+image: 12.18.3-stretch
 
 pages:
   script:
