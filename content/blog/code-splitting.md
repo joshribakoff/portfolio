@@ -1,3 +1,9 @@
+---
+title: "Optimal Code Splitting"
+description: "A look at the optimal way to code split, and a custom heatmap tool I created to help with this"
+date: "2020-09-12"
+---
+
 ## Vendor Bundle Anti-Pattern
 
 The typical app will code split one bundle for each page, as well as a vendor bundle containing a superset of all dependencies used on all pages. The reasoning cited for using this code splitting strategy is that "you will change your own code more often than you will change your dependencies". I am personally of the belief this is not true or optimal.
