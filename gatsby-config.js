@@ -47,6 +47,13 @@ module.exports = {
               defaultQuality: 80,
             },
           },
+          {
+            resolve: `gatsby-plugin-google-fonts`,
+            options: {
+              fonts: [`Roboto Mono`],
+              display: "swap",
+            },
+          },
         ],
       },
     },
