@@ -6,7 +6,7 @@ date: "2020-09-12"
 
 ## Vendor Bundle Anti-Pattern
 
-The typical app will code split one bundle for each page, as well as a vendor bundle containing a superset of all dependencies used on all pages. The reasoning cited for using this code splitting strategy is that "you will change your own code more often than you will change your dependencies". I am personally of the belief this is not true or optimal.
+The typical app will code split one bundle for each page, as well as a vendor bundle containing a superset of all dependencies used on all pages. The reasoning cited for using this code splitting strategy is that "you will change your own code more often than you will change your dependencies, so you should split it to optimize for caching". I am personally of the belief this is not true or optimal.
 
 [Vendor bundles are an anti-pattern](https://frontendmasters.com/courses/performance-webpack/vendor-bundles-are-an-anti-pattern/) according to Sean Larkin, a webpack contributor.
 
