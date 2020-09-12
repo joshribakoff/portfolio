@@ -38,7 +38,7 @@ Along the **horizontal** axis, we have a spectrum for how often the code changes
 
 ## Visualizing Optimal Code Split Points
 
-How do you know which quadrant your code sits in? One way is to use my heatmap visualization tool. By extracting the [code coverage from Chrome](https://developers.google.com/web/updates/2017/04/devtools-release-notes#coverage) we can overlay the raw coverage information on a [tree view visualization](https://en.wikipedia.org/wiki/Tree_view) like [source-map-explorer](https://github.com/danvk/source-map-explorer/pull/145). Here each box is a module, and the color gradient corresponds to what percentage of the code executed. This is a visualization of the video player component used on [twitch.tv](https://twitch.tv), where I have redacted the names of the modules for confidentiality.
+How do you know which quadrant your code sits in? [One way is to use my heatmap visualization tool](https://github.com/danvk/source-map-explorer/pull/145). By extracting the [code coverage from Chrome](https://developers.google.com/web/updates/2017/04/devtools-release-notes#coverage) we can overlay the raw coverage information on a [tree view visualization](https://en.wikipedia.org/wiki/Tree_view) like [source-map-explorer](https://github.com/danvk/source-map-explorer/pull/145). Here each box is a module, and the color gradient corresponds to what percentage of the code executed. This is a visualization of the video player component used on [twitch.tv](https://twitch.tv), where I have redacted the names of the modules for confidentiality.
 
 ![](./code-splitting/heatmap.png)
 
