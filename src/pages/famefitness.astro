@@ -1,0 +1,51 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const base = import.meta.env.BASE_URL;
+
+const images = [
+  'bookings-calendar.png',
+  'class-schedule.png',
+  'famefit-billing.png',
+  'famefit-cal.png',
+  'famefit-measure.png',
+  'famefit-new-week.png',
+  'famefit-overage-notification.png',
+  'famefit-plan.png',
+  'famefit-services.png',
+  'famefit-services-used.png',
+  'famefit-userdash.png',
+  'plan-activate.png',
+  'therapist-all.png',
+  'therapist-booking1.png',
+  'therapist-booking2.png',
+  'therapist-booking3.png',
+  'therapist-filtered.png',
+  'training.png',
+  'week-view.png',
+];
+---
+
+<Layout title="Fame Fitness - Josh Ribakoff">
+  <h1>Fame Fitness</h1>
+  <div class="gallery">
+    {images.map((img) => (
+      <a href={`${base}/images/famefitness/${img}`} target="_blank">
+        <img src={`${base}/images/famefitness/${img}`} class="gallery-img" />
+      </a>
+    ))}
+  </div>
+</Layout>
+
+<style>
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .gallery-img {
+    max-width: 500px;
+    border: 1px black solid;
+  }
+</style>

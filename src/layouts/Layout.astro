@@ -1,0 +1,141 @@
+---
+interface Props {
+  title?: string;
+}
+
+const { title = "Josh Ribakoff" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+    />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a class="home-link" href={`${import.meta.env.BASE_URL}/`}>
+          <img src={`${import.meta.env.BASE_URL}/avatar.jpg`} alt="Josh Ribakoff" class="avatar" />
+          <span>Josh Ribakoff</span>
+        </a>
+        <a href={`${import.meta.env.BASE_URL}/portfolio/`}>Portfolio</a>
+        <a href={`${import.meta.env.BASE_URL}/musings/`}>Musings</a>
+        <a href="https://www.youtube.com/c/JoshRibakoff">Videos</a>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>
+
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html,
+  body {
+    font-size: 16px;
+    line-height: 1.7;
+    font-family: "Open Sans", sans-serif;
+  }
+
+  header {
+    background-color: #0b0c10;
+    padding: 10px;
+  }
+
+  header a {
+    color: #66fcf1;
+    text-decoration: none;
+  }
+
+  nav {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    max-width: 800px;
+    margin: auto;
+    padding: 0;
+    gap: 1em;
+  }
+
+  .home-link {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+  }
+
+  .avatar {
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+  }
+
+  main {
+    max-width: 800px;
+    margin: auto;
+    padding: 10px;
+  }
+</style>
+
+<style is:global>
+  h1,
+  h2 {
+    font-family: "Roboto Mono", monospace;
+  }
+
+  h1 {
+    font-size: 32px;
+    font-weight: 700;
+  }
+
+  h2 {
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  a {
+    color: #66fcf1;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  pre {
+    padding: 1em;
+    background: #f5f5f5;
+    overflow-x: auto;
+    border-radius: 4px;
+  }
+
+  code {
+    font-family: "Roboto Mono", monospace;
+    font-size: 0.9em;
+  }
+
+  blockquote {
+    border-left: 4px solid #66fcf1;
+    padding-left: 1em;
+    margin: 1em 0;
+    font-style: italic;
+  }
+</style>
