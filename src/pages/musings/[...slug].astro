@@ -1,0 +1,87 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  const sortedPosts = posts.sort((a, b) =>
+    new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+  );
+
+  return sortedPosts.map((post, index) => ({
+    params: { slug: post.id },
+    props: {
+      post,
+      previous: sortedPosts[index + 1] || null,
+      next: sortedPosts[index - 1] || null,
+    },
+  }));
+}
+
+const { post, previous, next } = Astro.props;
+const { Content } = await render(post);
+
+function formatDate(dateStr: string) {
+  const date = new Date(dateStr);
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+}
+---
+
+<Layout title={`${post.data.title} - Josh Ribakoff`}>
+  <article>
+    <header>
+      <h1>{post.data.title}</h1>
+      <p class="date">{formatDate(post.data.date)}</p>
+    </header>
+    <section class="content">
+      <Content />
+    </section>
+    <hr />
+  </article>
+
+  <nav>
+    <ul>
+      <li>
+        {previous && (
+          <a href={`${import.meta.env.BASE_URL}/musings/${previous.id}/`} rel="prev">
+            &larr; {previous.data.title}
+          </a>
+        )}
+      </li>
+      <li>
+        {next && (
+          <a href={`${import.meta.env.BASE_URL}/musings/${next.id}/`} rel="next">
+            {next.data.title} &rarr;
+          </a>
+        )}
+      </li>
+    </ul>
+  </nav>
+</Layout>
+
+<style>
+  h1 {
+    margin-bottom: 0;
+  }
+
+  .date {
+    color: #666;
+    margin-top: 0.5rem;
+  }
+
+  .content {
+    margin-top: 2rem;
+  }
+
+  nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+  }
+</style>

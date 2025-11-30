@@ -1,0 +1,422 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout title="Portfolio - Josh Ribakoff">
+  <div class="page">
+    <h1>Portfolio</h1>
+    <ul class="timeline">
+      <li class="element">
+        <div class="time">
+          <time class="label">Feb 2020</time>
+        </div>
+        <div class="contents">
+          <div class="description">
+            <h2>Cruise</h2>
+            <p>Senior Software Engineer</p>
+            <p>
+              An American self-driving car company headquartered in San
+              Francisco, California
+            </p>
+          </div>
+          <div class="photo">
+            <img src={`${base}/images/cruise.png`} />
+          </div>
+        </div>
+        <div class="divider"></div>
+      </li>
+
+      <li class="element">
+        <div class="time">
+          <time class="label">Aug 2018</time>
+        </div>
+        <div class="contents">
+          <div class="description">
+            <h2>Amazon / Twitch</h2>
+            <p>Senior Software Engineer (react)</p>
+            <p>
+              Twitch is a live streaming video platform owned by Twitch
+              Interactive, a subsidiary of Amazon.
+            </p>
+          </div>
+          <div class="photo">
+            <img src={`${base}/images/twitch.png`} />
+          </div>
+        </div>
+        <div class="divider"></div>
+      </li>
+
+      <li class="element">
+        <div class="time">
+          <time class="label">Feb 2015</time>
+        </div>
+        <div class="contents">
+          <div class="description">
+            <h2>Isite Software / EMS Linq</h2>
+            <p>Distrupting the school lunch room</p>
+            <p>
+              Isite Software is a web, mobile & digital signage platform
+              for over 1,000 school districts viewed by millions of students
+              daily
+            </p>
+            <ul>
+              <li>a drag & drop interactive online calendar menu designer</li>
+              <li>
+                a network of thousands of IOT devices & custom digital
+                signage administration software & campaign designer
+              </li>
+            </ul>
+            <a class="button" href={`${base}/isite/`}>More details</a>
+            <h3>Technologies</h3>
+            <div class="tags">
+              <a class="tag" href="http://docker.com/" target="_blank">Docker</a>
+              <a class="tag" href="https://www.vagrantup.com/" target="_blank">Vagrant</a>
+              <a class="tag" href="https://www.ansible.com/" target="_blank">Ansible</a>
+              <a class="tag" href="https://aws.amazon.com/" target="_blank">AWS</a>
+              <a class="tag" href="https://www.mongodb.com/" target="_blank">Mongo</a>
+              <a class="tag" href="https://www.mysql.com/" target="_blank">Mysql</a>
+              <a class="tag" href="https://nodejs.org/en/" target="_blank">NodeJS</a>
+              <a class="tag" href="http://php.net/" target="_blank">PHP</a>
+              <a class="tag" href="https://symfony.com/" target="_blank">Symfony</a>
+              <a class="tag" href="https://silex.symfony.com/" target="_blank">Silex</a>
+              <a class="tag" href="https://angularjs.org/" target="_blank">Angular JS</a>
+              <a class="tag" href="https://reactjs.org/" target="_blank">React</a>
+              <a class="tag" href="https://redux.js.org/" target="_blank">Redux</a>
+              <a class="tag" href="https://webpack.js.org/" target="_blank">Webpack</a>
+              <a class="tag" href="http://babeljs.io/" target="_blank">Babel</a>
+              <a class="tag" href="https://socket.io/" target="_blank">SocketIO</a>
+              <a class="tag" href="http://pm2.keymetrics.io/" target="_blank">Pm2</a>
+              <a class="tag" href="http://supervisord.org/" target="_blank">Supervisor</a>
+              <a class="tag" href="https://graphql.org/" target="_blank">GraphQL</a>
+              <a class="tag" href="http://gearman.org/" target="_blank">Gearman</a>
+              <a class="tag" href="https://www.ffmpeg.org/" target="_blank">ffmpeg</a>
+              <a class="tag" href="https://developers.google.com/web/updates/2017/04/headless-chrome" target="_blank">Headless Chrome</a>
+            </div>
+          </div>
+          <div class="photo">
+            <img src={`${base}/images/isite.png`} />
+          </div>
+        </div>
+        <div class="divider"></div>
+      </li>
+
+      <li class="element">
+        <div class="time">
+          <time class="label">Jan 2014</time>
+        </div>
+        <div class="contents">
+          <div class="description">
+            <h2>Entertainment Company</h2>
+            <p>Paid membership video streaming platform</p>
+            <p>
+              This company, based in San Diego, produced premium video content
+              for consumption by paid members
+            </p>
+            <ul>
+              <li>a membership signup & billing management platform</li>
+              <li>
+                a video transcoding pipeline with preview thumbnails &
+                playback heatmaps for analytics
+              </li>
+            </ul>
+            <h3>Technologies</h3>
+            <div class="tags">
+              <a class="tag" href="https://www.mysql.com/" target="_blank">Mysql</a>
+              <a class="tag" href="http://php.net/" target="_blank">PHP</a>
+              <a class="tag" href="https://silex.symfony.com/" target="_blank">Silex</a>
+              <a class="tag" href="https://angularjs.org/" target="_blank">Angular JS</a>
+              <a class="tag" href="https://aws.amazon.com/" target="_blank">AWS</a>
+            </div>
+          </div>
+          <div class="photo">
+            <img src={`${base}/images/video.jpeg`} />
+          </div>
+        </div>
+        <div class="divider"></div>
+      </li>
+
+      <li class="element">
+        <div class="time">
+          <time class="label">Jun 2013</time>
+        </div>
+        <div class="contents">
+          <div class="description">
+            <h2>Paquin Healthcare</h2>
+            <p>Healthcare supply chain experts</p>
+            <p>
+              Paquin provides all in one e-commerce solutions and generates
+              new revenues for 300+ healthcare providers
+            </p>
+            <ul>
+              <li>Healthcare re-imbursement portal for Optum insurance</li>
+              <li>
+                Secure encrypted messaging platform iRemedy integrated with
+                withings scale & blood pressure monitors
+              </li>
+            </ul>
+            <h3>Technologies</h3>
+            <div class="tags">
+              <a class="tag" href="http://php.net/" target="_blank">PHP</a>
+              <a class="tag" href="https://www.magento.com/" target="_blank">Magento</a>
+              <a class="tag" href="https://jquery.com/" target="_blank">Jquery</a>
+            </div>
+          </div>
+          <div class="photo">
+            <img src={`${base}/images/paquin.png`} />
+          </div>
+        </div>
+        <div class="divider"></div>
+      </li>
+
+      <li class="element">
+        <div class="time">
+          <time class="label">Apr 2013</time>
+        </div>
+        <div class="contents">
+          <div class="description">
+            <h2>BMV Corp</h2>
+            <p>Debt Management Experts</p>
+            <p>
+              BMV Corp helped consumers with debt negotiate better rates with
+              creditors & disbursed funds on behalf of consumers
+            </p>
+            <ul>
+              <li>Wrote a RTF to HTML / HTML to RTF conversion algorithm</li>
+              <li>
+                50+ variations of legal contracts for PDF / CUPs document
+                generation & printing system
+              </li>
+            </ul>
+            <h3>Technologies</h3>
+            <div class="tags">
+              <a class="tag" href="http://php.net/" target="_blank">PHP</a>
+              <a class="tag" href="https://framework.zend.com/" target="_blank">Zend</a>
+              <a class="tag" href="https://jquery.com/" target="_blank">Jquery</a>
+            </div>
+          </div>
+          <div class="photo">
+            <img src={`${base}/images/illuminati.jpeg`} />
+          </div>
+        </div>
+        <div class="divider"></div>
+      </li>
+
+      <li class="element">
+        <div class="time">
+          <time class="label">Mar 2013</time>
+        </div>
+        <div class="contents">
+          <div class="description">
+            <h2>Fame Fitness</h2>
+            <p>Turn-key luxury fitness management</p>
+            <p>
+              Fame Fitness provided a white glove experience for high rises
+              & luxury condominiums in Miami, staffing the gyms &
+              providing one on one personal training & massage
+            </p>
+            <ul>
+              <li>
+                a self service booking system with credit card payments &
+                credit system
+              </li>
+              <li>a personalized health & vital tracker</li>
+            </ul>
+            <a class="button" href={`${base}/famefitness/`}>More details</a>
+            <h3>Technologies</h3>
+            <div class="tags">
+              <a class="tag" href="http://php.net/" target="_blank">PHP</a>
+              <a class="tag" href="https://jquery.com/" target="_blank">Jquery</a>
+              <a class="tag" href="https://www.mysql.com/" target="_blank">Mysql</a>
+            </div>
+          </div>
+          <div class="photo">
+            <img src={`${base}/images/famefitness/famefit-cal.png`} />
+          </div>
+        </div>
+        <div class="divider"></div>
+      </li>
+
+      <li class="element">
+        <div class="time">
+          <time class="label">Jan 2008</time>
+        </div>
+        <div class="contents">
+          <div class="description">
+            <h2>Vehicle Fits</h2>
+            <p>Aftermarket parts lookup tool</p>
+            <p>
+              I initially founded Vehicle Fits to provide a year/make/model
+              lookup tool, it quickly expanded to a generalized fitments tool
+              used by multiple vertical industries.
+            </p>
+            <ul>
+              <li>a dynamic schema system / custom fields engine</li>
+              <li>
+                industry specific plugins like wheel & tire fitments, bolt
+                patterns tools, bulk import tools, etc..
+              </li>
+            </ul>
+            <h3>Technologies</h3>
+            <div class="tags">
+              <a class="tag" href="http://php.net/" target="_blank">PHP</a>
+              <a class="tag" href="https://jquery.com/" target="_blank">Jquery</a>
+              <a class="tag" href="https://www.mysql.com/" target="_blank">Mysql</a>
+              <a class="tag" href="https://www.magento.com/" target="_blank">Magento</a>
+            </div>
+          </div>
+          <div class="photo">
+            <img src={`${base}/images/vehiclefits/website.png`} />
+          </div>
+        </div>
+        <div class="divider"></div>
+      </li>
+
+      <li class="element">
+        <div class="time">
+          <time class="label">Jan 2006</time>
+        </div>
+        <div class="contents">
+          <div class="description">
+            <h2>Marinas.com</h2>
+            <p>The premier website for marine information</p>
+            <ul>
+              <li>a custom Google Maps clone</li>
+              <li>a turn-key data ingestion system using geo-clustering</li>
+            </ul>
+            <a class="button" href={`${base}/marinas/`}>More details</a>
+            <h3>Technologies</h3>
+            <div class="tags">
+              <a class="tag" href="http://php.net/" target="_blank">PHP</a>
+              <a class="tag" href="https://jquery.com/" target="_blank">Jquery</a>
+              <a class="tag" href="https://www.mysql.com/" target="_blank">Mysql</a>
+            </div>
+          </div>
+          <div class="photo">
+            <img src={`${base}/images/marinas/page3.jpg`} />
+          </div>
+        </div>
+        <div class="divider"></div>
+      </li>
+    </ul>
+  </div>
+</Layout>
+
+<style>
+  .page {
+    padding: 1.25rem 1rem;
+  }
+
+  .timeline {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .element {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+
+  .divider {
+    border-bottom: 1px solid #ddd;
+    margin-left: 160px;
+    height: 30px;
+    margin-bottom: 30px;
+    clear: both;
+  }
+
+  .time {
+    line-height: 1.5;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100px;
+    padding: 30px 15px;
+    padding-top: 0;
+    color: #999;
+    text-align: right;
+    font-style: italic;
+    border-right: 1px solid #ddd;
+  }
+
+  .label {
+    display: block;
+    font-family: Roboto, sans-serif;
+    position: relative;
+  }
+
+  .label::after {
+    content: " ";
+    position: absolute;
+    top: 12px;
+    right: -17.5px;
+    display: block;
+    width: 5px;
+    height: 5px;
+    background-color: rgba(187, 30, 30, 0.8);
+  }
+
+  .contents {
+    margin-left: 150px;
+  }
+
+  .description {
+    font-family: Roboto, sans-serif;
+  }
+
+  .description h2 {
+    margin-top: 0;
+  }
+
+  .photo img {
+    max-width: 100%;
+  }
+
+  @media (min-width: 1000px) {
+    .description {
+      float: left;
+      width: 50%;
+    }
+
+    .photo {
+      float: left;
+      width: 50%;
+    }
+  }
+
+  .button {
+    display: inline-block;
+    margin-top: 10px;
+    background-color: #af2222;
+    border: 1px solid #9a1e1e;
+    color: #fff;
+    padding: 0.7em 1.2em;
+    text-shadow: none;
+    background-image: none;
+    text-decoration: none;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .tag {
+    display: inline-block;
+    background-color: rgba(175, 34, 34, 0.8);
+    color: #fff;
+    padding: 4px 10px;
+    font-size: 13px;
+    text-transform: uppercase;
+    text-shadow: none;
+    background-image: none;
+    text-decoration: none;
+  }
+</style>

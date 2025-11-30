@@ -1,0 +1,53 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Josh Ribakoff">
+  <div>
+    <h1>Hi, I'm Josh.</h1>
+    <h2>
+      I am a software engineer specialised in both front-end and back-end web
+      development.
+    </h2>
+    <p>
+      14 years experience in a variety of environments from open source,
+      startups, and top tech companies on large teams at scale. Experienced in
+      both frontend and backend as well as with video streaming, real time
+      distributed systems, graphics programming, scheduling software, AST
+      tools, apps with complex interactions, and traditional turnkey software.
+    </p>
+    <p>
+      <strong>Skills:</strong> Typescript, Javascript, React, Redux, GraphQL,
+      Apollo, Jest, Webpack, Babel, NodeJS, RxJS, Websockets, Webworkers,
+      WebRTC, WebGL/Canvas Libraries, Algorithms, Data Structures,{" "}
+      <strong>Past:</strong> PHP, DevOps, Backend, Angular, MongoDb, MySql
+    </p>
+    <a href={`${import.meta.env.BASE_URL}/portfolio/`}>Portfolio</a>
+    <hr />
+    <div class="social-links">
+      <a href="https://www.youtube.com/c/JoshRibakoff">
+        <i class="fab fa-youtube"></i>
+      </a>
+      <a href="https://twitter.com/joshribakoff">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="https://github.com/joshribakoff">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/josh-ribakoff-9a5948152/">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .social-links {
+    display: flex;
+    gap: 0.5em;
+  }
+
+  .social-links a {
+    margin: 3px;
+  }
+</style>

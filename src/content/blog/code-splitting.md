@@ -14,7 +14,7 @@ The typical app will code split one bundle for each page, as well as a vendor bu
 
 To understand why Sean says vendor bundles are an anti-pattern, let's consider a hypothetical app with two pages, "Page A" and "Page B". Each page uses a distinct, but potentially overlapping set of vendor code.
 
-![example app with different set of vendor code needed on each page](./code-splitting/example-app-breakdown.png)
+![example app with different set of vendor code needed on each page](/portfolio/images/blog/code-splitting/example-app-breakdown.png)
 
 With the vendor bundle pattern, you would end up with three bundles:
 
@@ -34,13 +34,13 @@ Along the **vertical** axis, we have a spectrum of how critical the code is. Cod
 
 Along the **horizontal** axis, we have a spectrum for how often the code changes, for example if you upgrade to a new version of React only once a year, but you change your content hourly, these codes would sit on opposite ends of the horizontal spectrum.
 
-![](./code-splitting/quadrant.png)
+![](/portfolio/images/blog/code-splitting/quadrant.png)
 
 ## Visualizing Optimal Code Split Points
 
 How do you know which quadrant your code sits in? [One way is to use my heatmap visualization tool](https://github.com/danvk/source-map-explorer/pull/145). By extracting the [code coverage from Chrome](https://developers.google.com/web/updates/2017/04/devtools-release-notes#coverage) we can overlay the raw coverage information on a [tree view visualization](https://en.wikipedia.org/wiki/Tree_view) like [source-map-explorer](https://github.com/danvk/source-map-explorer/pull/145). Here each box is a module, and the color gradient corresponds to what percentage of the code executed. This is a visualization of the video player component used on [twitch.tv](https://twitch.tv), where I have redacted the names of the modules for confidentiality.
 
-![](./code-splitting/heatmap.png)
+![](/portfolio/images/blog/code-splitting/heatmap.png)
 
 The red boxes correspond to code that never executed while we were collecting the coverage. The reason the code did not execute could be numerous, a non inclusive list:
 
@@ -58,7 +58,7 @@ An idea for another tool would be to visualize how frequently the code changes, 
 
 Since Sean Larkin coined the "vendor bundle anti-pattern", I want to identify another potential anti-pattern to look out for. The waterfall router manifests when websites create a single webpack entry point that loads their router, and other "core" code. The "core" bundle has to be downloaded, parsed, and evaluated to determine which route the user is on. Only after all of this happens can the router code begin to fetch the content for the page the user actually requested.
 
-![sequence diagram of downloading router, and only downloading content after](./code-splitting/waterfall-router.png)
+![sequence diagram of downloading router, and only downloading content after](/portfolio/images/blog/code-splitting/waterfall-router.png)
 
 As you can see here, there is a waterfall sequence in the above diagram, first we must fetch the "core" bundle, then we must execute it and parse the route, and only then can we determine which page's bundle to begin fetching.
 
@@ -74,14 +74,14 @@ Don't over index on these metrics, but don't ignore them either. If you're servi
 
 Reddit has 40% dead code...
 
-![](./code-splitting/reddit-coverage.png)
+![](/portfolio/images/blog/code-splitting/reddit-coverage.png)
 
 Twitter has 50% dead code...
 
-![](./code-splitting/twitter-coverage.png)
+![](/portfolio/images/blog/code-splitting/twitter-coverage.png)
 
 Facebook has 91% dead code!
 
-![](./code-splitting/facebook-coverage.png)
+![](/portfolio/images/blog/code-splitting/facebook-coverage.png)
 
 Go run the [Chrome code coverage](https://developers.google.com/web/updates/2017/04/devtools-release-notes#coverage) on your app today and see how you measure up!
