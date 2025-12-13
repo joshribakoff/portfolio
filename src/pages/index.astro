@@ -30,30 +30,37 @@ const featuredProjects = [
 
 <Layout title="Josh Ribakoff - Senior Software Engineer">
   <section class="hero">
-    <h1>Hi, I'm Josh.</h1>
-    <p class="tagline">
-      Senior Software Engineer with 20+ years building complex frontend systems at scale.
-    </p>
-    <p class="summary">
-      I specialize in React, TypeScript, and building robust, tested abstractions that empower engineering teams.
-      Currently focused on frontend architecture, developer tooling, and high-performance applications.
-    </p>
-    <div class="hero-links">
-      <a href={`${base}portfolio/`} class="btn btn-primary">View Portfolio</a>
-    </div>
-    <div class="social-links">
-      <a href="https://github.com/joshribakoff" target="_blank" rel="noopener" title="GitHub">
-        <i class="fab fa-github"></i>
-      </a>
-      <a href="https://www.linkedin.com/in/josh-ribakoff-9a5948152/" target="_blank" rel="noopener" title="LinkedIn">
-        <i class="fab fa-linkedin"></i>
-      </a>
-      <a href="https://www.youtube.com/c/JoshRibakoff" target="_blank" rel="noopener" title="YouTube">
-        <i class="fab fa-youtube"></i>
-      </a>
-      <a href="mailto:josh@joshribakoff.com" title="Email">
-        <i class="fas fa-envelope"></i>
-      </a>
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>Hi, I'm Josh.</h1>
+        <p class="tagline">
+          Senior Software Engineer with 20+ years experience — building complex frontend systems at scale.
+        </p>
+        <p class="summary">
+          I specialize in React, TypeScript, and building robust, tested abstractions that empower engineering teams.
+          Currently focused on frontend architecture, developer tooling, and high-performance applications.
+        </p>
+        <div class="hero-links">
+          <a href={`${base}portfolio/`} class="btn btn-primary">View Portfolio</a>
+        </div>
+        <div class="social-links">
+          <a href="https://github.com/joshribakoff" target="_blank" rel="noopener" title="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/josh-ribakoff-9a5948152/" target="_blank" rel="noopener" title="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://www.youtube.com/c/JoshRibakoff" target="_blank" rel="noopener" title="YouTube">
+            <i class="fab fa-youtube"></i>
+          </a>
+          <a href="mailto:josh@joshribakoff.com" title="Email">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src={`${base}avatar.png`} alt="Josh Ribakoff" />
+      </div>
     </div>
   </section>
 
@@ -120,6 +127,43 @@ const featuredProjects = [
     padding: 3rem 0;
     border-bottom: 1px solid var(--border);
     margin-bottom: 3rem;
+  }
+
+  .hero-content {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .hero-text {
+    flex: 1;
+  }
+
+  .hero-image {
+    flex-shrink: 0;
+  }
+
+  .hero-image img {
+    width: 280px;
+    height: auto;
+    border-radius: 12px;
+    border: 3px solid var(--border);
+  }
+
+  @media (max-width: 768px) {
+    .hero-content {
+      flex-direction: column-reverse;
+      text-align: center;
+    }
+
+    .hero-image img {
+      width: 200px;
+    }
+
+    .hero-links,
+    .social-links {
+      justify-content: center;
+    }
   }
 
   .hero h1 {

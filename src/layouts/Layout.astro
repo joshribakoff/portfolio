@@ -30,7 +30,6 @@ const base = import.meta.env.BASE_URL;
     <header>
       <nav>
         <a class="home-link" href={routes.home()}>
-          <img src={`${base}avatar.png`} alt="Josh Ribakoff" class="avatar" />
           <span>Josh Ribakoff</span>
         </a>
         <a href={routes.portfolio()}>Portfolio</a>
@@ -115,13 +114,7 @@ const base = import.meta.env.BASE_URL;
     font-weight: 600;
   }
 
-  .avatar {
-    border-radius: 100%;
-    width: 64px;
-    height: 64px;
-    border: 2px solid #222;
-  }
-
+  
   main {
     max-width: 960px;
     margin: auto;
