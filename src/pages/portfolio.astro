@@ -10,6 +10,31 @@ const base = import.meta.env.BASE_URL;
     <ul class="timeline">
       <li class="element">
         <div class="time">
+          <time class="label">2024</time>
+        </div>
+        <div class="contents">
+          <div class="description">
+            <h2>Bloomberg</h2>
+            <p>Senior Software Engineer</p>
+            <p>
+              Global financial data and analytics company providing real-time
+              market data, news, and trading tools to professionals worldwide.
+            </p>
+            <h3>Technologies</h3>
+            <div class="tags">
+              <span class="tag">React</span>
+              <span class="tag">TypeScript</span>
+            </div>
+          </div>
+          <div class="photo">
+            <img src={`${base}/images/bloomberg.svg`} alt="Bloomberg" />
+          </div>
+        </div>
+        <div class="divider"></div>
+      </li>
+
+      <li class="element">
+        <div class="time">
           <time class="label">Feb 2020</time>
         </div>
         <div class="contents">
@@ -305,7 +330,11 @@ const base = import.meta.env.BASE_URL;
 
 <style>
   .page {
-    padding: 1.25rem 1rem;
+    padding: 1rem 0;
+  }
+
+  .page h1 {
+    margin-bottom: 2rem;
   }
 
   .timeline {
@@ -323,7 +352,7 @@ const base = import.meta.env.BASE_URL;
   }
 
   .divider {
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid var(--border);
     margin-left: 160px;
     height: 30px;
     margin-bottom: 30px;
@@ -339,27 +368,29 @@ const base = import.meta.env.BASE_URL;
     width: 100px;
     padding: 30px 15px;
     padding-top: 0;
-    color: #999;
+    color: var(--text-secondary);
     text-align: right;
     font-style: italic;
-    border-right: 1px solid #ddd;
+    border-right: 1px solid var(--border);
   }
 
   .label {
     display: block;
-    font-family: Roboto, sans-serif;
+    font-family: "Roboto Mono", monospace;
     position: relative;
+    font-size: 0.9rem;
   }
 
   .label::after {
     content: " ";
     position: absolute;
-    top: 12px;
+    top: 10px;
     right: -17.5px;
     display: block;
-    width: 5px;
-    height: 5px;
-    background-color: rgba(187, 30, 30, 0.8);
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent);
+    border-radius: 50%;
   }
 
   .contents {
@@ -367,15 +398,50 @@ const base = import.meta.env.BASE_URL;
   }
 
   .description {
-    font-family: Roboto, sans-serif;
+    font-family: "Open Sans", sans-serif;
   }
 
   .description h2 {
     margin-top: 0;
+    margin-bottom: 0.25rem;
+  }
+
+  .description h3 {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .description p {
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+  }
+
+  .description ul {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
   }
 
   .photo img {
     max-width: 100%;
+    border-radius: 4px;
+  }
+
+  .placeholder-logo {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+    font-family: "Roboto Mono", monospace;
   }
 
   @media (min-width: 1000px) {
@@ -387,36 +453,74 @@ const base = import.meta.env.BASE_URL;
     .photo {
       float: left;
       width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
     }
   }
 
   .button {
     display: inline-block;
     margin-top: 10px;
-    background-color: #af2222;
-    border: 1px solid #9a1e1e;
-    color: #fff;
-    padding: 0.7em 1.2em;
-    text-shadow: none;
-    background-image: none;
+    background-color: var(--accent);
+    border: none;
+    color: #0a0a0a;
+    padding: 0.6em 1.2em;
     text-decoration: none;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+  }
+
+  .button:hover {
+    background-color: var(--accent-hover);
+    color: #0a0a0a;
   }
 
   .tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 5px;
+    gap: 6px;
   }
 
   .tag {
     display: inline-block;
-    background-color: rgba(175, 34, 34, 0.8);
-    color: #fff;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
     padding: 4px 10px;
-    font-size: 13px;
+    font-size: 0.75rem;
     text-transform: uppercase;
-    text-shadow: none;
-    background-image: none;
     text-decoration: none;
+    font-family: "Roboto Mono", monospace;
+    border-radius: 3px;
+    transition: border-color 0.2s ease;
+  }
+
+  .tag:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  @media (max-width: 768px) {
+    .time {
+      position: relative;
+      width: auto;
+      border-right: none;
+      text-align: left;
+      padding: 0 0 0.5rem 0;
+    }
+
+    .label::after {
+      display: none;
+    }
+
+    .contents {
+      margin-left: 0;
+    }
+
+    .divider {
+      margin-left: 0;
+    }
   }
 </style>

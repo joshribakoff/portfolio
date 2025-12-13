@@ -100,11 +100,16 @@ const base = import.meta.env.BASE_URL;
 </Layout>
 
 <style>
+  h1 {
+    margin-bottom: 1.5rem;
+  }
+
   .float-left {
     max-width: 100%;
     float: left;
     margin-right: 25px;
     margin-bottom: 25px;
+    border-radius: 4px;
   }
 
   .float-left-small {
@@ -113,6 +118,7 @@ const base = import.meta.env.BASE_URL;
     float: left;
     margin-right: 15px;
     margin-bottom: 15px;
+    border-radius: 4px;
   }
 
   .clear {
@@ -122,10 +128,11 @@ const base = import.meta.env.BASE_URL;
   .gallery {
     display: flex;
     flex-flow: row wrap;
+    gap: 1rem;
+    margin: 1.5rem 0;
   }
 
   .gallery-item {
-    margin: 0.5vw;
     flex: auto;
     width: 200px;
   }
@@ -133,5 +140,12 @@ const base = import.meta.env.BASE_URL;
   .gallery-item img {
     width: 100%;
     height: auto;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    transition: border-color 0.2s ease;
+  }
+
+  .gallery-item img:hover {
+    border-color: var(--accent);
   }
 </style>

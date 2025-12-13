@@ -1,68 +1,379 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const base = import.meta.env.BASE_URL;
+
+const featuredProjects = [
+  {
+    name: "Bloomberg",
+    role: "Senior Software Engineer",
+    description: "Financial data and analytics platform serving professionals worldwide",
+    image: `${base}/images/bloomberg.svg`,
+    tags: ["React", "TypeScript"],
+  },
+  {
+    name: "Cruise",
+    role: "Senior Software Engineer",
+    description: "Self-driving car company building autonomous vehicles",
+    image: `${base}/images/cruise.png`,
+    tags: ["React", "TypeScript"],
+  },
+  {
+    name: "Amazon / Twitch",
+    role: "Senior Software Engineer",
+    description: "Live streaming video platform with millions of daily users",
+    image: `${base}/images/twitch.png`,
+    tags: ["React", "TypeScript"],
+  },
+];
 ---
 
-<Layout title="Josh Ribakoff">
-  <div>
+<Layout title="Josh Ribakoff - Senior Software Engineer">
+  <section class="hero">
     <h1>Hi, I'm Josh.</h1>
-    <h2>
-      I am a software engineer specialised in both front-end and back-end web
-      development.
-    </h2>
-    <p>
-      14 years experience in a variety of environments from open source,
-      startups, and top tech companies on large teams at scale. Experienced in
-      both frontend and backend as well as with video streaming, real time
-      distributed systems, graphics programming, scheduling software, AST
-      tools, apps with complex interactions, and traditional turnkey software.
+    <p class="tagline">
+      Senior Software Engineer with 14+ years building complex frontend systems at scale.
     </p>
-    <p>
-      <strong>Skills:</strong> Typescript, Javascript, React, Redux, GraphQL,
-      Apollo, Jest, Webpack, Babel, NodeJS, RxJS, Websockets, Webworkers,
-      WebRTC, WebGL/Canvas Libraries, Algorithms, Data Structures,{" "}
-      <strong>Past:</strong> PHP, DevOps, Backend, Angular, MongoDb, MySql
+    <p class="summary">
+      I specialize in React, TypeScript, and building robust, tested abstractions that empower engineering teams.
+      Currently focused on frontend architecture, developer tooling, and high-performance applications.
     </p>
-    <hr />
+    <div class="hero-links">
+      <a href={`${base}/portfolio/`} class="btn btn-primary">View Portfolio</a>
+    </div>
     <div class="social-links">
-      <a href="https://www.youtube.com/c/JoshRibakoff">
-        <i class="fab fa-youtube"></i>
-      </a>
-      <a href="https://twitter.com/joshribakoff">
-        <i class="fab fa-twitter"></i>
-      </a>
-      <a href="https://github.com/joshribakoff">
+      <a href="https://github.com/joshribakoff" target="_blank" rel="noopener" title="GitHub">
         <i class="fab fa-github"></i>
       </a>
-      <a href="https://www.linkedin.com/in/josh-ribakoff-9a5948152/">
+      <a href="https://www.linkedin.com/in/josh-ribakoff-9a5948152/" target="_blank" rel="noopener" title="LinkedIn">
         <i class="fab fa-linkedin"></i>
       </a>
+      <a href="https://www.youtube.com/c/JoshRibakoff" target="_blank" rel="noopener" title="YouTube">
+        <i class="fab fa-youtube"></i>
+      </a>
     </div>
-  </div>
+  </section>
+
+  <section class="featured">
+    <h2>Featured Work</h2>
+    <div class="project-grid">
+      {featuredProjects.map((project) => (
+        <article class="project-card">
+          <div class="project-image">
+            {project.image ? (
+              <img src={project.image} alt={project.name} />
+            ) : (
+              <div class="placeholder-logo">{project.name.charAt(0)}</div>
+            )}
+          </div>
+          <div class="project-content">
+            <h3>{project.name}</h3>
+            <span class="role">{project.role}</span>
+            <p>{project.description}</p>
+            <div class="tags">
+              {project.tags.map((tag) => (
+                <span class="tag">{tag}</span>
+              ))}
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+    <div class="view-all">
+      <a href={`${base}/portfolio/`}>View all work <span class="arrow">&rarr;</span></a>
+    </div>
+  </section>
+
+  <section class="skills">
+    <h2>How I Work</h2>
+    <p class="approach-intro">
+      I leverage AI to rapidly navigate complex systems and master new technologies.
+      What matters now is systems-level thinking and architectural judgment—not memorizing specific APIs.
+    </p>
+    <div class="skill-groups">
+      <div class="skill-group">
+        <h3>What I Build</h3>
+        <div class="skill-tags">
+          <span>Frontend Architecture at Scale</span>
+          <span>Developer Tooling</span>
+          <span>Testable Abstractions</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Experience With</h3>
+        <div class="skill-tags">
+          <span>WebRTC & Voice</span>
+          <span>Video Streaming</span>
+          <span>Real-time Systems</span>
+          <span>WebGL/Canvas</span>
+        </div>
+      </div>
+    </div>
+  </section>
 </Layout>
 
 <style>
-  .social-links {
+  .hero {
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 3rem;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .tagline {
+    font-size: 1.25rem;
+    color: var(--accent);
+    font-family: "Roboto Mono", monospace;
+    margin-bottom: 1rem;
+  }
+
+  .summary {
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-links {
     display: flex;
-    gap: 0.5em;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
   }
 
-  .social-links a {
-    margin: 3px;
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
   }
 
-  .social-links .fa-youtube {
+  .btn-primary {
+    background: var(--accent);
+    color: #0a0a0a;
+  }
+
+  .btn-primary:hover {
+    background: var(--accent-hover);
+    color: #0a0a0a;
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .btn-secondary i {
     color: #ff0000;
   }
 
-  .social-links .fa-twitter {
-    color: #1da1f2;
+  .social-links {
+    display: flex;
+    gap: 1rem;
   }
 
-  .social-links .fa-github {
-    color: #000000;
+  .social-links a {
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+    transition: color 0.2s ease;
   }
 
-  .social-links .fa-linkedin {
-    color: #0077b5;
+  .social-links a:hover {
+    color: var(--accent);
+  }
+
+  .featured {
+    margin-bottom: 3rem;
+  }
+
+  .featured h2 {
+    margin-bottom: 1.5rem;
+  }
+
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .project-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .project-card:hover {
+    border-color: #333;
+    transform: translateY(-2px);
+  }
+
+  .project-image {
+    height: 120px;
+    background: var(--bg-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+  }
+
+  .project-image img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+  }
+
+  .placeholder-logo {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: white;
+    font-family: "Roboto Mono", monospace;
+  }
+
+  .project-content {
+    padding: 1.25rem;
+  }
+
+  .project-content h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .role {
+    display: block;
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-family: "Roboto Mono", monospace;
+    margin-bottom: 0.75rem;
+  }
+
+  .project-content p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tag {
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    padding: 0.25rem 0.6rem;
+    border-radius: 3px;
+    font-size: 0.75rem;
+    font-family: "Roboto Mono", monospace;
+    text-transform: uppercase;
+  }
+
+  .view-all {
+    text-align: right;
+  }
+
+  .view-all a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+  }
+
+  .view-all a:hover {
+    color: var(--accent);
+  }
+
+  .arrow {
+    display: inline-block;
+    transition: transform 0.2s ease;
+  }
+
+  .view-all a:hover .arrow {
+    transform: translateX(4px);
+  }
+
+  .skills {
+    padding: 2rem 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .skills h2 {
+    margin-bottom: 1rem;
+  }
+
+  .approach-intro {
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .skill-groups {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+  }
+
+  .skill-group h3 {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .skill-tags span {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+  }
+
+  @media (max-width: 600px) {
+    .hero h1 {
+      font-size: 2rem;
+    }
+
+    .tagline {
+      font-size: 1.1rem;
+    }
+
+    .project-grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>

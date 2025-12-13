@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { getCollection, render } from 'astro:content';
+import { routes } from '../../lib/routes';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -47,14 +48,14 @@ function formatDate(dateStr: string) {
     <ul>
       <li>
         {previous && (
-          <a href={`${import.meta.env.BASE_URL}/musings/${previous.id}/`} rel="prev">
+          <a href={routes.blog.post(previous.id)} rel="prev">
             &larr; {previous.data.title}
           </a>
         )}
       </li>
       <li>
         {next && (
-          <a href={`${import.meta.env.BASE_URL}/musings/${next.id}/`} rel="next">
+          <a href={routes.blog.post(next.id)} rel="next">
             {next.data.title} &rarr;
           </a>
         )}
@@ -64,17 +65,31 @@ function formatDate(dateStr: string) {
 </Layout>
 
 <style>
+  article {
+    margin-bottom: 2rem;
+  }
+
   h1 {
     margin-bottom: 0;
   }
 
   .date {
-    color: #666;
+    color: var(--accent);
+    font-family: "Roboto Mono", monospace;
+    font-size: 0.9rem;
     margin-top: 0.5rem;
   }
 
   .content {
     margin-top: 2rem;
+    color: var(--text-primary);
+  }
+
+  nav {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
   }
 
   nav ul {
@@ -83,5 +98,22 @@ function formatDate(dateStr: string) {
     justify-content: space-between;
     list-style: none;
     padding: 0;
+    margin: 0;
+    gap: 1rem;
+  }
+
+  nav li {
+    margin: 0;
+  }
+
+  nav a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    font-size: 0.9rem;
+  }
+
+  nav a:hover {
+    color: var(--accent);
   }
 </style>
