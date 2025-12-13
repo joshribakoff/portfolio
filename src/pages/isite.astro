@@ -3,27 +3,63 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="iSite Software - Josh Ribakoff">
-  <iframe
-    width="560"
-    height="315"
-    src="https://www.youtube.com/embed/TQfICz8VlP0"
-    frameborder="0"
-    allow="autoplay; encrypted-media"
-    allowfullscreen
-  ></iframe>
-  <iframe
-    width="560"
-    height="315"
-    src="https://www.youtube.com/embed/gL9bcDHn2Rk"
-    frameborder="0"
-    allow="autoplay; encrypted-media"
-    allowfullscreen
-  ></iframe>
+  <h1>iSite Software / EMS Linq</h1>
+  <p class="intro">
+    Disrupting the school lunch room with a drag & drop interactive online calendar menu designer
+    and a network of thousands of IoT devices with custom digital signage software.
+  </p>
+  <div class="video-grid">
+    <div class="video-container">
+      <iframe
+        src="https://www.youtube.com/embed/TQfICz8VlP0"
+        frameborder="0"
+        allow="autoplay; encrypted-media"
+        allowfullscreen
+      ></iframe>
+    </div>
+    <div class="video-container">
+      <iframe
+        src="https://www.youtube.com/embed/gL9bcDHn2Rk"
+        frameborder="0"
+        allow="autoplay; encrypted-media"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </div>
 </Layout>
 
 <style>
-  iframe {
-    max-width: 100%;
-    margin-bottom: 1rem;
+  h1 {
+    margin-bottom: 0.5rem;
+  }
+
+  .intro {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    max-width: 600px;
+  }
+
+  .video-grid {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    background: var(--bg-card);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+  }
+
+  .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
   }
 </style>
