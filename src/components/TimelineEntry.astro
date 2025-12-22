@@ -1,0 +1,56 @@
+---
+interface Tech {
+  name: string;
+  url?: string;
+}
+
+interface Props {
+  time: string;
+  title: string;
+  subtitle?: string;
+  description?: string;
+  bullets?: string[];
+  detailsLink?: string;
+  technologies?: Tech[];
+  image: string;
+  imageAlt?: string;
+}
+
+const { time, title, subtitle, description, bullets, detailsLink, technologies, image, imageAlt } = Astro.props;
+const base = import.meta.env.BASE_URL;
+---
+
+<li class="element">
+  <div class="time">
+    <time class="label">{time}</time>
+  </div>
+  <div class="contents">
+    <div class="description">
+      <h2>{title}</h2>
+      {subtitle && <p>{subtitle}</p>}
+      {description && <p>{description}</p>}
+      {bullets && bullets.length > 0 && (
+        <ul>
+          {bullets.map(bullet => <li>{bullet}</li>)}
+        </ul>
+      )}
+      {detailsLink && <a class="button" href={`${base}${detailsLink}`}>More details</a>}
+      {technologies && technologies.length > 0 && (
+        <>
+          <h3>Technologies</h3>
+          <div class="tags">
+            {technologies.map(tech =>
+              tech.url
+                ? <a class="tag" href={tech.url} target="_blank">{tech.name}</a>
+                : <span class="tag">{tech.name}</span>
+            )}
+          </div>
+        </>
+      )}
+    </div>
+    <div class="photo">
+      <img src={`${base}${image}`} alt={imageAlt || title} />
+    </div>
+  </div>
+  <div class="divider"></div>
+</li>

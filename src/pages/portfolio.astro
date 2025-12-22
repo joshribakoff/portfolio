@@ -1,366 +1,192 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import TimelineEntry from '../components/TimelineEntry.astro';
 
-const base = import.meta.env.BASE_URL;
+const jobs = [
+  {
+    time: "2022 - Present",
+    title: "Bloomberg",
+    subtitle: "Senior Software Engineer",
+    description: "Global financial data and analytics company providing real-time market data, news, and trading tools to professionals worldwide.",
+    technologies: [{ name: "React" }, { name: "TypeScript" }],
+    image: "images/bloomberg.svg",
+  },
+  {
+    time: "Oct 2020 - Nov 2021",
+    title: "Brex",
+    subtitle: "Senior Software Engineer",
+    description: "American fintech company offering business credit cards and cash management to technology companies.",
+    bullets: [
+      "Maintained infrastructure for ACH money movements",
+      "Instrumented services with metrics, built dashboards and SLOs",
+      "Added resiliency patterns: transactional events, retries, out-of-order event handling",
+      "Worked with cross-functional stakeholders to achieve 80% reduction in servicing interventions",
+      "Contributed to testing patterns, platform improvements, and recruiting efforts",
+    ],
+    technologies: [
+      { name: "TypeScript" }, { name: "React" }, { name: "Elixir" },
+      { name: "GraphQL" }, { name: "gRPC" }, { name: "Kubernetes" }, { name: "Postgres" },
+    ],
+    image: "images/brex.svg",
+  },
+  {
+    time: "Feb 2020",
+    title: "Cruise",
+    subtitle: "Senior Software Engineer",
+    description: "An American self-driving car company headquartered in San Francisco, California",
+    image: "images/cruise.png",
+  },
+  {
+    time: "Aug 2018",
+    title: "Amazon / Twitch",
+    subtitle: "Senior Software Engineer (react)",
+    description: "Twitch is a live streaming video platform owned by Twitch Interactive, a subsidiary of Amazon.",
+    image: "images/twitch.png",
+  },
+  {
+    time: "Feb 2015",
+    title: "Isite Software / EMS Linq",
+    subtitle: "Distrupting the school lunch room",
+    description: "Isite Software is a web, mobile & digital signage platform for over 1,000 school districts viewed by millions of students daily",
+    bullets: [
+      "a drag & drop interactive online calendar menu designer",
+      "a network of thousands of IOT devices & custom digital signage administration software & campaign designer",
+    ],
+    detailsLink: "isite/",
+    technologies: [
+      { name: "Docker", url: "http://docker.com/" },
+      { name: "Vagrant", url: "https://www.vagrantup.com/" },
+      { name: "Ansible", url: "https://www.ansible.com/" },
+      { name: "AWS", url: "https://aws.amazon.com/" },
+      { name: "Mongo", url: "https://www.mongodb.com/" },
+      { name: "Mysql", url: "https://www.mysql.com/" },
+      { name: "NodeJS", url: "https://nodejs.org/en/" },
+      { name: "PHP", url: "http://php.net/" },
+      { name: "Symfony", url: "https://symfony.com/" },
+      { name: "Silex", url: "https://silex.symfony.com/" },
+      { name: "Angular JS", url: "https://angularjs.org/" },
+      { name: "React", url: "https://reactjs.org/" },
+      { name: "Redux", url: "https://redux.js.org/" },
+      { name: "Webpack", url: "https://webpack.js.org/" },
+      { name: "Babel", url: "http://babeljs.io/" },
+      { name: "SocketIO", url: "https://socket.io/" },
+      { name: "Pm2", url: "http://pm2.keymetrics.io/" },
+      { name: "Supervisor", url: "http://supervisord.org/" },
+      { name: "GraphQL", url: "https://graphql.org/" },
+      { name: "Gearman", url: "http://gearman.org/" },
+      { name: "ffmpeg", url: "https://www.ffmpeg.org/" },
+      { name: "Headless Chrome", url: "https://developers.google.com/web/updates/2017/04/headless-chrome" },
+    ],
+    image: "images/isite.png",
+  },
+  {
+    time: "Jan 2014",
+    title: "Entertainment Company",
+    subtitle: "Paid membership video streaming platform",
+    description: "This company, based in San Diego, produced premium video content for consumption by paid members",
+    bullets: [
+      "a membership signup & billing management platform",
+      "a video transcoding pipeline with preview thumbnails & playback heatmaps for analytics",
+    ],
+    technologies: [
+      { name: "Mysql", url: "https://www.mysql.com/" },
+      { name: "PHP", url: "http://php.net/" },
+      { name: "Silex", url: "https://silex.symfony.com/" },
+      { name: "Angular JS", url: "https://angularjs.org/" },
+      { name: "AWS", url: "https://aws.amazon.com/" },
+    ],
+    image: "images/video.jpeg",
+  },
+  {
+    time: "Jun 2013",
+    title: "Paquin Healthcare",
+    subtitle: "Healthcare supply chain experts",
+    description: "Paquin provides all in one e-commerce solutions and generates new revenues for 300+ healthcare providers",
+    bullets: [
+      "Healthcare re-imbursement portal for Optum insurance",
+      "Secure encrypted messaging platform iRemedy integrated with withings scale & blood pressure monitors",
+    ],
+    technologies: [
+      { name: "PHP", url: "http://php.net/" },
+      { name: "Magento", url: "https://www.magento.com/" },
+      { name: "Jquery", url: "https://jquery.com/" },
+    ],
+    image: "images/paquin.png",
+  },
+  {
+    time: "Apr 2013",
+    title: "BMV Corp",
+    subtitle: "Debt Management Experts",
+    description: "BMV Corp helped consumers with debt negotiate better rates with creditors & disbursed funds on behalf of consumers",
+    bullets: [
+      "Wrote a RTF to HTML / HTML to RTF conversion algorithm",
+      "50+ variations of legal contracts for PDF / CUPs document generation & printing system",
+    ],
+    technologies: [
+      { name: "PHP", url: "http://php.net/" },
+      { name: "Zend", url: "https://framework.zend.com/" },
+      { name: "Jquery", url: "https://jquery.com/" },
+    ],
+    image: "images/illuminati.jpeg",
+  },
+  {
+    time: "Mar 2013",
+    title: "Fame Fitness",
+    subtitle: "Turn-key luxury fitness management",
+    description: "Fame Fitness provided a white glove experience for high rises & luxury condominiums in Miami, staffing the gyms & providing one on one personal training & massage",
+    bullets: [
+      "a self service booking system with credit card payments & credit system",
+      "a personalized health & vital tracker",
+    ],
+    detailsLink: "famefitness/",
+    technologies: [
+      { name: "PHP", url: "http://php.net/" },
+      { name: "Jquery", url: "https://jquery.com/" },
+      { name: "Mysql", url: "https://www.mysql.com/" },
+    ],
+    image: "images/famefitness/famefit-cal.png",
+  },
+  {
+    time: "Jan 2008",
+    title: "Vehicle Fits",
+    subtitle: "Aftermarket parts lookup tool",
+    description: "I initially founded Vehicle Fits to provide a year/make/model lookup tool, it quickly expanded to a generalized fitments tool used by multiple vertical industries.",
+    bullets: [
+      "a dynamic schema system / custom fields engine",
+      "industry specific plugins like wheel & tire fitments, bolt patterns tools, bulk import tools, etc..",
+    ],
+    technologies: [
+      { name: "PHP", url: "http://php.net/" },
+      { name: "Jquery", url: "https://jquery.com/" },
+      { name: "Mysql", url: "https://www.mysql.com/" },
+      { name: "Magento", url: "https://www.magento.com/" },
+    ],
+    image: "images/vehiclefits/website.png",
+  },
+  {
+    time: "Jan 2006",
+    title: "Marinas.com",
+    subtitle: "The premier website for marine information",
+    bullets: [
+      "a custom Google Maps clone",
+      "a turn-key data ingestion system using geo-clustering",
+    ],
+    detailsLink: "marinas/",
+    technologies: [
+      { name: "PHP", url: "http://php.net/" },
+      { name: "Jquery", url: "https://jquery.com/" },
+      { name: "Mysql", url: "https://www.mysql.com/" },
+    ],
+    image: "images/marinas/page3.jpg",
+  },
+];
 ---
 
 <Layout title="Portfolio - Josh Ribakoff">
   <div class="page">
     <h1>Portfolio</h1>
     <ul class="timeline">
-      <li class="element">
-        <div class="time">
-          <time class="label">2022 - Present</time>
-        </div>
-        <div class="contents">
-          <div class="description">
-            <h2>Bloomberg</h2>
-            <p>Senior Software Engineer</p>
-            <p>
-              Global financial data and analytics company providing real-time
-              market data, news, and trading tools to professionals worldwide.
-            </p>
-            <h3>Technologies</h3>
-            <div class="tags">
-              <span class="tag">React</span>
-              <span class="tag">TypeScript</span>
-            </div>
-          </div>
-          <div class="photo">
-            <img src={`${base}images/bloomberg.svg`} alt="Bloomberg" />
-          </div>
-        </div>
-        <div class="divider"></div>
-      </li>
-
-      <li class="element">
-        <div class="time">
-          <time class="label">Oct 2020 - Nov 2021</time>
-        </div>
-        <div class="contents">
-          <div class="description">
-            <h2>Brex</h2>
-            <p>Senior Software Engineer</p>
-            <p>
-              American fintech company offering business credit cards and cash
-              management to technology companies.
-            </p>
-            <ul>
-              <li>Maintained infrastructure for ACH money movements</li>
-              <li>Instrumented services with metrics, built dashboards and SLOs</li>
-              <li>Added resiliency patterns: transactional events, retries, out-of-order event handling</li>
-              <li>Worked with cross-functional stakeholders to achieve 80% reduction in servicing interventions</li>
-              <li>Contributed to testing patterns, platform improvements, and recruiting efforts</li>
-            </ul>
-            <h3>Technologies</h3>
-            <div class="tags">
-              <span class="tag">TypeScript</span>
-              <span class="tag">React</span>
-              <span class="tag">Elixir</span>
-              <span class="tag">GraphQL</span>
-              <span class="tag">gRPC</span>
-              <span class="tag">Kubernetes</span>
-              <span class="tag">Postgres</span>
-            </div>
-          </div>
-          <div class="photo">
-            <img src={`${base}images/brex.svg`} alt="Brex" />
-          </div>
-        </div>
-        <div class="divider"></div>
-      </li>
-
-      <li class="element">
-        <div class="time">
-          <time class="label">Feb 2020</time>
-        </div>
-        <div class="contents">
-          <div class="description">
-            <h2>Cruise</h2>
-            <p>Senior Software Engineer</p>
-            <p>
-              An American self-driving car company headquartered in San
-              Francisco, California
-            </p>
-          </div>
-          <div class="photo">
-            <img src={`${base}images/cruise.png`} />
-          </div>
-        </div>
-        <div class="divider"></div>
-      </li>
-
-      <li class="element">
-        <div class="time">
-          <time class="label">Aug 2018</time>
-        </div>
-        <div class="contents">
-          <div class="description">
-            <h2>Amazon / Twitch</h2>
-            <p>Senior Software Engineer (react)</p>
-            <p>
-              Twitch is a live streaming video platform owned by Twitch
-              Interactive, a subsidiary of Amazon.
-            </p>
-          </div>
-          <div class="photo">
-            <img src={`${base}images/twitch.png`} />
-          </div>
-        </div>
-        <div class="divider"></div>
-      </li>
-
-      <li class="element">
-        <div class="time">
-          <time class="label">Feb 2015</time>
-        </div>
-        <div class="contents">
-          <div class="description">
-            <h2>Isite Software / EMS Linq</h2>
-            <p>Distrupting the school lunch room</p>
-            <p>
-              Isite Software is a web, mobile & digital signage platform
-              for over 1,000 school districts viewed by millions of students
-              daily
-            </p>
-            <ul>
-              <li>a drag & drop interactive online calendar menu designer</li>
-              <li>
-                a network of thousands of IOT devices & custom digital
-                signage administration software & campaign designer
-              </li>
-            </ul>
-            <a class="button" href={`${base}isite/`}>More details</a>
-            <h3>Technologies</h3>
-            <div class="tags">
-              <a class="tag" href="http://docker.com/" target="_blank">Docker</a>
-              <a class="tag" href="https://www.vagrantup.com/" target="_blank">Vagrant</a>
-              <a class="tag" href="https://www.ansible.com/" target="_blank">Ansible</a>
-              <a class="tag" href="https://aws.amazon.com/" target="_blank">AWS</a>
-              <a class="tag" href="https://www.mongodb.com/" target="_blank">Mongo</a>
-              <a class="tag" href="https://www.mysql.com/" target="_blank">Mysql</a>
-              <a class="tag" href="https://nodejs.org/en/" target="_blank">NodeJS</a>
-              <a class="tag" href="http://php.net/" target="_blank">PHP</a>
-              <a class="tag" href="https://symfony.com/" target="_blank">Symfony</a>
-              <a class="tag" href="https://silex.symfony.com/" target="_blank">Silex</a>
-              <a class="tag" href="https://angularjs.org/" target="_blank">Angular JS</a>
-              <a class="tag" href="https://reactjs.org/" target="_blank">React</a>
-              <a class="tag" href="https://redux.js.org/" target="_blank">Redux</a>
-              <a class="tag" href="https://webpack.js.org/" target="_blank">Webpack</a>
-              <a class="tag" href="http://babeljs.io/" target="_blank">Babel</a>
-              <a class="tag" href="https://socket.io/" target="_blank">SocketIO</a>
-              <a class="tag" href="http://pm2.keymetrics.io/" target="_blank">Pm2</a>
-              <a class="tag" href="http://supervisord.org/" target="_blank">Supervisor</a>
-              <a class="tag" href="https://graphql.org/" target="_blank">GraphQL</a>
-              <a class="tag" href="http://gearman.org/" target="_blank">Gearman</a>
-              <a class="tag" href="https://www.ffmpeg.org/" target="_blank">ffmpeg</a>
-              <a class="tag" href="https://developers.google.com/web/updates/2017/04/headless-chrome" target="_blank">Headless Chrome</a>
-            </div>
-          </div>
-          <div class="photo">
-            <img src={`${base}images/isite.png`} />
-          </div>
-        </div>
-        <div class="divider"></div>
-      </li>
-
-      <li class="element">
-        <div class="time">
-          <time class="label">Jan 2014</time>
-        </div>
-        <div class="contents">
-          <div class="description">
-            <h2>Entertainment Company</h2>
-            <p>Paid membership video streaming platform</p>
-            <p>
-              This company, based in San Diego, produced premium video content
-              for consumption by paid members
-            </p>
-            <ul>
-              <li>a membership signup & billing management platform</li>
-              <li>
-                a video transcoding pipeline with preview thumbnails &
-                playback heatmaps for analytics
-              </li>
-            </ul>
-            <h3>Technologies</h3>
-            <div class="tags">
-              <a class="tag" href="https://www.mysql.com/" target="_blank">Mysql</a>
-              <a class="tag" href="http://php.net/" target="_blank">PHP</a>
-              <a class="tag" href="https://silex.symfony.com/" target="_blank">Silex</a>
-              <a class="tag" href="https://angularjs.org/" target="_blank">Angular JS</a>
-              <a class="tag" href="https://aws.amazon.com/" target="_blank">AWS</a>
-            </div>
-          </div>
-          <div class="photo">
-            <img src={`${base}images/video.jpeg`} />
-          </div>
-        </div>
-        <div class="divider"></div>
-      </li>
-
-      <li class="element">
-        <div class="time">
-          <time class="label">Jun 2013</time>
-        </div>
-        <div class="contents">
-          <div class="description">
-            <h2>Paquin Healthcare</h2>
-            <p>Healthcare supply chain experts</p>
-            <p>
-              Paquin provides all in one e-commerce solutions and generates
-              new revenues for 300+ healthcare providers
-            </p>
-            <ul>
-              <li>Healthcare re-imbursement portal for Optum insurance</li>
-              <li>
-                Secure encrypted messaging platform iRemedy integrated with
-                withings scale & blood pressure monitors
-              </li>
-            </ul>
-            <h3>Technologies</h3>
-            <div class="tags">
-              <a class="tag" href="http://php.net/" target="_blank">PHP</a>
-              <a class="tag" href="https://www.magento.com/" target="_blank">Magento</a>
-              <a class="tag" href="https://jquery.com/" target="_blank">Jquery</a>
-            </div>
-          </div>
-          <div class="photo">
-            <img src={`${base}images/paquin.png`} />
-          </div>
-        </div>
-        <div class="divider"></div>
-      </li>
-
-      <li class="element">
-        <div class="time">
-          <time class="label">Apr 2013</time>
-        </div>
-        <div class="contents">
-          <div class="description">
-            <h2>BMV Corp</h2>
-            <p>Debt Management Experts</p>
-            <p>
-              BMV Corp helped consumers with debt negotiate better rates with
-              creditors & disbursed funds on behalf of consumers
-            </p>
-            <ul>
-              <li>Wrote a RTF to HTML / HTML to RTF conversion algorithm</li>
-              <li>
-                50+ variations of legal contracts for PDF / CUPs document
-                generation & printing system
-              </li>
-            </ul>
-            <h3>Technologies</h3>
-            <div class="tags">
-              <a class="tag" href="http://php.net/" target="_blank">PHP</a>
-              <a class="tag" href="https://framework.zend.com/" target="_blank">Zend</a>
-              <a class="tag" href="https://jquery.com/" target="_blank">Jquery</a>
-            </div>
-          </div>
-          <div class="photo">
-            <img src={`${base}images/illuminati.jpeg`} />
-          </div>
-        </div>
-        <div class="divider"></div>
-      </li>
-
-      <li class="element">
-        <div class="time">
-          <time class="label">Mar 2013</time>
-        </div>
-        <div class="contents">
-          <div class="description">
-            <h2>Fame Fitness</h2>
-            <p>Turn-key luxury fitness management</p>
-            <p>
-              Fame Fitness provided a white glove experience for high rises
-              & luxury condominiums in Miami, staffing the gyms &
-              providing one on one personal training & massage
-            </p>
-            <ul>
-              <li>
-                a self service booking system with credit card payments &
-                credit system
-              </li>
-              <li>a personalized health & vital tracker</li>
-            </ul>
-            <a class="button" href={`${base}famefitness/`}>More details</a>
-            <h3>Technologies</h3>
-            <div class="tags">
-              <a class="tag" href="http://php.net/" target="_blank">PHP</a>
-              <a class="tag" href="https://jquery.com/" target="_blank">Jquery</a>
-              <a class="tag" href="https://www.mysql.com/" target="_blank">Mysql</a>
-            </div>
-          </div>
-          <div class="photo">
-            <img src={`${base}images/famefitness/famefit-cal.png`} />
-          </div>
-        </div>
-        <div class="divider"></div>
-      </li>
-
-      <li class="element">
-        <div class="time">
-          <time class="label">Jan 2008</time>
-        </div>
-        <div class="contents">
-          <div class="description">
-            <h2>Vehicle Fits</h2>
-            <p>Aftermarket parts lookup tool</p>
-            <p>
-              I initially founded Vehicle Fits to provide a year/make/model
-              lookup tool, it quickly expanded to a generalized fitments tool
-              used by multiple vertical industries.
-            </p>
-            <ul>
-              <li>a dynamic schema system / custom fields engine</li>
-              <li>
-                industry specific plugins like wheel & tire fitments, bolt
-                patterns tools, bulk import tools, etc..
-              </li>
-            </ul>
-            <h3>Technologies</h3>
-            <div class="tags">
-              <a class="tag" href="http://php.net/" target="_blank">PHP</a>
-              <a class="tag" href="https://jquery.com/" target="_blank">Jquery</a>
-              <a class="tag" href="https://www.mysql.com/" target="_blank">Mysql</a>
-              <a class="tag" href="https://www.magento.com/" target="_blank">Magento</a>
-            </div>
-          </div>
-          <div class="photo">
-            <img src={`${base}images/vehiclefits/website.png`} />
-          </div>
-        </div>
-        <div class="divider"></div>
-      </li>
-
-      <li class="element">
-        <div class="time">
-          <time class="label">Jan 2006</time>
-        </div>
-        <div class="contents">
-          <div class="description">
-            <h2>Marinas.com</h2>
-            <p>The premier website for marine information</p>
-            <ul>
-              <li>a custom Google Maps clone</li>
-              <li>a turn-key data ingestion system using geo-clustering</li>
-            </ul>
-            <a class="button" href={`${base}marinas/`}>More details</a>
-            <h3>Technologies</h3>
-            <div class="tags">
-              <a class="tag" href="http://php.net/" target="_blank">PHP</a>
-              <a class="tag" href="https://jquery.com/" target="_blank">Jquery</a>
-              <a class="tag" href="https://www.mysql.com/" target="_blank">Mysql</a>
-            </div>
-          </div>
-          <div class="photo">
-            <img src={`${base}images/marinas/page3.jpg`} />
-          </div>
-        </div>
-        <div class="divider"></div>
-      </li>
+      {jobs.map(job => <TimelineEntry {...job} />)}
     </ul>
   </div>
 </Layout>
@@ -380,7 +206,7 @@ const base = import.meta.env.BASE_URL;
     padding: 0;
   }
 
-  .element {
+  .timeline :global(.element) {
     position: relative;
     overflow: hidden;
     display: block;
@@ -388,7 +214,7 @@ const base = import.meta.env.BASE_URL;
     padding: 0;
   }
 
-  .divider {
+  .timeline :global(.divider) {
     border-bottom: 1px solid var(--border);
     margin-left: 160px;
     height: 30px;
@@ -396,7 +222,7 @@ const base = import.meta.env.BASE_URL;
     clear: both;
   }
 
-  .time {
+  .timeline :global(.time) {
     line-height: 1.5;
     position: absolute;
     top: 0;
@@ -411,14 +237,14 @@ const base = import.meta.env.BASE_URL;
     border-right: 1px solid var(--border);
   }
 
-  .label {
+  .timeline :global(.label) {
     display: block;
     font-family: "Roboto Mono", monospace;
     position: relative;
     font-size: 0.9rem;
   }
 
-  .label::after {
+  .timeline :global(.label)::after {
     content: " ";
     position: absolute;
     top: 10px;
@@ -430,20 +256,20 @@ const base = import.meta.env.BASE_URL;
     border-radius: 50%;
   }
 
-  .contents {
+  .timeline :global(.contents) {
     margin-left: 150px;
   }
 
-  .description {
+  .timeline :global(.description) {
     font-family: "Open Sans", sans-serif;
   }
 
-  .description h2 {
+  .timeline :global(.description h2) {
     margin-top: 0;
     margin-bottom: 0.25rem;
   }
 
-  .description h3 {
+  .timeline :global(.description h3) {
     margin-top: 1rem;
     margin-bottom: 0.5rem;
     font-size: 0.85rem;
@@ -452,42 +278,28 @@ const base = import.meta.env.BASE_URL;
     letter-spacing: 0.05em;
   }
 
-  .description p {
+  .timeline :global(.description p) {
     color: var(--text-secondary);
     margin-bottom: 0.5rem;
   }
 
-  .description ul {
+  .timeline :global(.description ul) {
     color: var(--text-secondary);
     margin-bottom: 1rem;
   }
 
-  .photo img {
+  .timeline :global(.photo img) {
     max-width: 100%;
     border-radius: 4px;
   }
 
-  .placeholder-logo {
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(135deg, #ff6b35, #f7931e);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    font-weight: 700;
-    color: white;
-    font-family: "Roboto Mono", monospace;
-  }
-
   @media (min-width: 1000px) {
-    .description {
+    .timeline :global(.description) {
       float: left;
       width: 50%;
     }
 
-    .photo {
+    .timeline :global(.photo) {
       float: left;
       width: 50%;
       display: flex;
@@ -496,7 +308,7 @@ const base = import.meta.env.BASE_URL;
     }
   }
 
-  .button {
+  .timeline :global(.button) {
     display: inline-block;
     margin-top: 10px;
     background-color: var(--accent);
@@ -509,18 +321,18 @@ const base = import.meta.env.BASE_URL;
     transition: background-color 0.2s ease;
   }
 
-  .button:hover {
+  .timeline :global(.button:hover) {
     background-color: var(--accent-hover);
     color: #0a0a0a;
   }
 
-  .tags {
+  .timeline :global(.tags) {
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
   }
 
-  .tag {
+  .timeline :global(.tag) {
     display: inline-block;
     background-color: var(--bg-card);
     border: 1px solid var(--border);
@@ -534,13 +346,13 @@ const base = import.meta.env.BASE_URL;
     transition: border-color 0.2s ease;
   }
 
-  .tag:hover {
+  .timeline :global(.tag:hover) {
     border-color: var(--accent);
     color: var(--accent);
   }
 
   @media (max-width: 768px) {
-    .time {
+    .timeline :global(.time) {
       position: relative;
       width: auto;
       border-right: none;
@@ -548,15 +360,15 @@ const base = import.meta.env.BASE_URL;
       padding: 0 0 0.5rem 0;
     }
 
-    .label::after {
+    .timeline :global(.label)::after {
       display: none;
     }
 
-    .contents {
+    .timeline :global(.contents) {
       margin-left: 0;
     }
 
-    .divider {
+    .timeline :global(.divider) {
       margin-left: 0;
     }
   }
