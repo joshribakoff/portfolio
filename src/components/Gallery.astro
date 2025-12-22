@@ -1,0 +1,61 @@
+---
+interface GalleryItem {
+  src: string;
+  alt?: string;
+  href?: string;
+}
+
+interface Props {
+  items: GalleryItem[];
+  maxWidth?: string;
+}
+
+const { items, maxWidth = '200px' } = Astro.props;
+const base = import.meta.env.BASE_URL;
+---
+
+<div class="gallery">
+  {items.map(item => {
+    const imgSrc = item.src.startsWith('http') ? item.src : `${base}${item.src}`;
+    const linkHref = item.href ? (item.href.startsWith('http') ? item.href : `${base}${item.href}`) : undefined;
+
+    return linkHref ? (
+      <a href={linkHref} target="_blank" class="gallery-item" style={`width: ${maxWidth}`}>
+        <img src={imgSrc} alt={item.alt || ''} />
+      </a>
+    ) : (
+      <div class="gallery-item" style={`width: ${maxWidth}`}>
+        <img src={imgSrc} alt={item.alt || ''} />
+      </div>
+    );
+  })}
+</div>
+
+<style>
+  .gallery {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .gallery-item {
+    flex: auto;
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .gallery-item:hover img {
+    border-color: var(--accent);
+  }
+
+  a.gallery-item:hover img {
+    transform: translateY(-2px);
+  }
+</style>

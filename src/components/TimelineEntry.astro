@@ -1,4 +1,6 @@
 ---
+import Tag from './Tag.astro';
+
 interface Tech {
   name: string;
   url?: string;
@@ -39,11 +41,7 @@ const base = import.meta.env.BASE_URL;
         <>
           <h3>Technologies</h3>
           <div class="tags">
-            {technologies.map(tech =>
-              tech.url
-                ? <a class="tag" href={tech.url} target="_blank">{tech.name}</a>
-                : <span class="tag">{tech.name}</span>
-            )}
+            {technologies.map(tech => <Tag label={tech.name} href={tech.url} />)}
           </div>
         </>
       )}

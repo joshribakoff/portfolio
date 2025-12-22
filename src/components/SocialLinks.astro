@@ -1,0 +1,39 @@
+---
+interface SocialLink {
+  url: string;
+  icon: string;
+  title: string;
+}
+
+interface Props {
+  links?: SocialLink[];
+  variant?: 'icons' | 'text';
+}
+
+const defaultLinks: SocialLink[] = [
+  { url: "https://github.com/joshribakoff", icon: "fab fa-github", title: "GitHub" },
+  { url: "https://www.linkedin.com/in/josh-ribakoff-9a5948152/", icon: "fab fa-linkedin", title: "LinkedIn" },
+  { url: "https://www.youtube.com/c/JoshRibakoff", icon: "fab fa-youtube", title: "YouTube" },
+  { url: "mailto:josh@joshribakoff.com", icon: "fas fa-envelope", title: "Email" },
+];
+
+const { links = defaultLinks, variant = 'icons' } = Astro.props;
+---
+
+{variant === 'icons' ? (
+  <div class="social-links">
+    {links.map(link => (
+      <a href={link.url} target={link.url.startsWith('mailto:') ? undefined : "_blank"} rel="noopener" title={link.title}>
+        <i class={link.icon}></i>
+      </a>
+    ))}
+  </div>
+) : (
+  <div class="footer-links">
+    {links.map(link => (
+      <a href={link.url} target={link.url.startsWith('mailto:') ? undefined : "_blank"} rel="noopener">
+        {link.title}
+      </a>
+    ))}
+  </div>
+)}

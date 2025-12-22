@@ -1,5 +1,6 @@
 ---
 import { routes } from '../lib/routes';
+import SocialLinks from '../components/SocialLinks.astro';
 
 interface Props {
   title?: string;
@@ -42,12 +43,7 @@ const base = import.meta.env.BASE_URL;
     <footer>
       <div class="footer-content">
         <span>&copy; {new Date().getFullYear()} Josh Ribakoff</span>
-        <div class="footer-links">
-          <a href="https://github.com/joshribakoff" target="_blank" rel="noopener">GitHub</a>
-          <a href="https://www.linkedin.com/in/josh-ribakoff-9a5948152/" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="https://www.youtube.com/c/JoshRibakoff" target="_blank" rel="noopener">YouTube</a>
-          <a href="mailto:josh@joshribakoff.com">Email</a>
-        </div>
+        <SocialLinks variant="text" />
       </div>
     </footer>
   </body>

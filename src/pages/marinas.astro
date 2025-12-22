@@ -1,7 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Gallery from '../components/Gallery.astro';
 
 const base = import.meta.env.BASE_URL;
+
+const gallery1 = [
+  { src: "images/marinas/page1.jpg" },
+  { src: "images/marinas/page2.jpg" },
+  { src: "images/marinas/page4.jpg" },
+];
+
+const gallery2 = [
+  { src: "images/marinas/map2.jpg" },
+  { src: "images/marinas/mapf.png" },
+];
 ---
 
 <Layout title="Marinas.com - Josh Ribakoff">
@@ -47,11 +59,7 @@ const base = import.meta.env.BASE_URL;
     conflict with the state of internet speeds & and screen resolution
     sizes in 2006.
   </p>
-  <div class="gallery">
-    <div class="gallery-item"><img src={`${base}images/marinas/page1.jpg`} /></div>
-    <div class="gallery-item"><img src={`${base}images/marinas/page2.jpg`} /></div>
-    <div class="gallery-item"><img src={`${base}images/marinas/page4.jpg`} /></div>
-  </div>
+  <Gallery items={gallery1} />
   <p>
     <img
       src={`${base}images/marinas/map.jpg`}
@@ -76,10 +84,7 @@ const base = import.meta.env.BASE_URL;
     essentially built a Google Maps clone in 12 weeks, during the same year
     Google Maps launched.
   </p>
-  <div class="gallery">
-    <div class="gallery-item"><img src={`${base}images/marinas/map2.jpg`} /></div>
-    <div class="gallery-item"><img src={`${base}images/marinas/mapf.png`} /></div>
-  </div>
+  <Gallery items={gallery2} />
   <blockquote class="clear">
     <p>
       <em>
@@ -123,29 +128,5 @@ const base = import.meta.env.BASE_URL;
 
   .clear {
     clear: both;
-  }
-
-  .gallery {
-    display: flex;
-    flex-flow: row wrap;
-    gap: 1rem;
-    margin: 1.5rem 0;
-  }
-
-  .gallery-item {
-    flex: auto;
-    width: 200px;
-  }
-
-  .gallery-item img {
-    width: 100%;
-    height: auto;
-    border-radius: 4px;
-    border: 1px solid var(--border);
-    transition: border-color 0.2s ease;
-  }
-
-  .gallery-item img:hover {
-    border-color: var(--accent);
   }
 </style>
