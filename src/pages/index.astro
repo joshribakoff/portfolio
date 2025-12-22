@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import SocialLinks from '../components/SocialLinks.astro';
 
 const base = import.meta.env.BASE_URL;
 
@@ -43,20 +44,7 @@ const featuredProjects = [
         <div class="hero-links">
           <a href={`${base}portfolio/`} class="btn btn-primary">View Portfolio</a>
         </div>
-        <div class="social-links">
-          <a href="https://github.com/joshribakoff" target="_blank" rel="noopener" title="GitHub">
-            <i class="fab fa-github"></i>
-          </a>
-          <a href="https://www.linkedin.com/in/josh-ribakoff-9a5948152/" target="_blank" rel="noopener" title="LinkedIn">
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a href="https://www.youtube.com/c/JoshRibakoff" target="_blank" rel="noopener" title="YouTube">
-            <i class="fab fa-youtube"></i>
-          </a>
-          <a href="mailto:josh@joshribakoff.com" title="Email">
-            <i class="fas fa-envelope"></i>
-          </a>
-        </div>
+        <SocialLinks />
       </div>
       <div class="hero-image">
         <img src={`${base}avatar.png`} alt="Josh Ribakoff" />
