@@ -1,0 +1,89 @@
+---
+interface Props {
+  videoId: string;
+  title: string;
+  published: Date;
+}
+
+const { videoId, title, published } = Astro.props;
+---
+
+<a href={`https://www.youtube.com/watch?v=${videoId}`} target="_blank" rel="noopener" class="video-card">
+  <div class="thumbnail">
+    <img src={`https://img.youtube.com/vi/${videoId}/mqdefault.jpg`} alt={title} loading="lazy" />
+    <div class="play-overlay">
+      <i class="fas fa-play"></i>
+    </div>
+  </div>
+  <div class="video-info">
+    <h3>{title}</h3>
+    <time>{published.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</time>
+  </div>
+</a>
+
+<style>
+  .video-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    text-decoration: none;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .video-card:hover {
+    border-color: #333;
+    transform: translateY(-2px);
+  }
+
+  .thumbnail {
+    position: relative;
+    aspect-ratio: 16/9;
+    background: var(--bg-secondary);
+  }
+
+  .thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .play-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .video-card:hover .play-overlay { opacity: 1; }
+
+  .play-overlay i {
+    font-size: 2.5rem;
+    color: white;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  }
+
+  .video-info {
+    padding: 1rem;
+  }
+
+  .video-info h3 {
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .video-info time {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    font-family: "Roboto Mono", monospace;
+  }
+</style>

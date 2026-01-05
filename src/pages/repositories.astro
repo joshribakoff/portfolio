@@ -1,0 +1,182 @@
+---
+import Layout from '../layouts/Layout.astro';
+import RepoCard from '../components/RepoCard.astro';
+import { cachedFetch } from '../lib/cache';
+
+const GITHUB_USER = 'joshribakoff';
+
+// Fetch all repos (cached)
+const allRepos = await cachedFetch(`https://api.github.com/users/${GITHUB_USER}/repos?sort=updated&per_page=100`) || [];
+
+// Helper to fetch languages for a repo
+async function getLanguages(repoName: string): Promise<Record<string, number>> {
+  return await cachedFetch(`https://api.github.com/repos/${GITHUB_USER}/${repoName}/languages`) || {};
+}
+
+// Helper to fetch repo details (for parent info on forks)
+async function getRepoDetails(repoName: string) {
+  return await cachedFetch(`https://api.github.com/repos/${GITHUB_USER}/${repoName}`);
+}
+
+// Helper to fetch PRs I authored in a repo
+async function getMyPRs(owner: string, repo: string) {
+  const data = await cachedFetch(`https://api.github.com/search/issues?q=author:${GITHUB_USER}+type:pr+repo:${owner}/${repo}&per_page=5`);
+  return data?.items?.map((pr: any) => ({
+    title: pr.title,
+    url: pr.html_url,
+    state: pr.state,
+    merged: pr.pull_request?.merged_at != null
+  })) || [];
+}
+
+// Process ALL forked repos with enriched data
+const forkedReposRaw = allRepos.filter((r: any) => r.fork);
+const contributions = await Promise.all(
+  forkedReposRaw.map(async (repo: any) => {
+    const [details, languages] = await Promise.all([
+      getRepoDetails(repo.name),
+      getLanguages(repo.name)
+    ]);
+
+    const parent = details?.parent;
+    const prs = parent ? await getMyPRs(parent.owner.login, parent.name) : [];
+
+    return {
+      name: repo.name,
+      description: parent?.description || repo.description,
+      url: repo.html_url,
+      upstreamUrl: parent?.html_url,
+      upstreamStars: parent?.stargazers_count || 0,
+      languages: Object.keys(languages).slice(0, 4),
+      prs
+    };
+  })
+);
+
+// Filter to only show contributions with merged PRs, sort by upstream stars
+const meaningfulContributions = contributions
+  .map(c => ({ ...c, prs: c.prs.filter(pr => pr.merged) }))
+  .filter(c => c.prs.length > 0)
+  .sort((a, b) => b.upstreamStars - a.upstreamStars);
+
+// Process original repos with languages
+const originalsRaw = allRepos
+  .filter((r: any) => !r.fork)
+  .sort((a: any, b: any) => b.stargazers_count - a.stargazers_count)
+  .slice(0, 15);
+
+const originals = await Promise.all(
+  originalsRaw.map(async (repo: any) => {
+    const languages = await getLanguages(repo.name);
+    return {
+      name: repo.name,
+      description: repo.description,
+      url: repo.html_url,
+      languages: Object.keys(languages).slice(0, 4),
+      stars: repo.stargazers_count,
+      forks: repo.forks_count
+    };
+  })
+);
+---
+
+<Layout title="Repositories - Josh Ribakoff">
+  <h1>Repositories</h1>
+  <p class="intro">Open source projects and contributions on GitHub.</p>
+
+  {meaningfulContributions.length > 0 && (
+    <>
+      <h2 class="section-title">Open Source Contributions</h2>
+      <div class="repo-grid">
+        {meaningfulContributions.map(contrib => (
+          <RepoCard
+            name={contrib.name}
+            description={contrib.description}
+            url={contrib.url}
+            languages={contrib.languages}
+            upstreamStars={contrib.upstreamStars}
+            upstreamUrl={contrib.upstreamUrl}
+            prs={contrib.prs}
+            isFork={true}
+          />
+        ))}
+      </div>
+    </>
+  )}
+
+  <h2 class="section-title">My Projects</h2>
+  <div class="repo-grid">
+    {originals.map(repo => (
+      <RepoCard
+        name={repo.name}
+        description={repo.description}
+        url={repo.url}
+        languages={repo.languages}
+        stars={repo.stars}
+        forks={repo.forks}
+        isFork={false}
+      />
+    ))}
+  </div>
+
+  <div class="cta">
+    <a href="https://github.com/joshribakoff" target="_blank" rel="noopener" class="btn">
+      <i class="fab fa-github"></i> View All on GitHub
+    </a>
+  </div>
+</Layout>
+
+<style>
+  h1 { margin-bottom: 0.5rem; }
+
+  .intro {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+  }
+
+  .section-title {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 2rem 0 1rem;
+  }
+
+  .section-title:first-of-type {
+    margin-top: 0;
+  }
+
+  .repo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .cta {
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.75rem;
+    background: var(--accent);
+    color: #0a0a0a;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 6px;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .btn:hover {
+    background: var(--accent-hover);
+    color: #0a0a0a;
+    transform: translateY(-2px);
+  }
+
+  .btn i { font-size: 1.1rem; }
+</style>
