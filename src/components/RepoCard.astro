@@ -1,0 +1,208 @@
+---
+interface PR {
+  title: string;
+  url: string;
+  state: string;
+  merged: boolean;
+}
+
+interface Props {
+  name: string;
+  description: string | null;
+  url: string;
+  languages?: string[];
+  stars?: number;
+  forks?: number;
+  isFork: boolean;
+  upstreamStars?: number;
+  upstreamUrl?: string;
+  prs?: PR[];
+}
+
+const { name, description, url, languages = [], stars = 0, forks = 0, isFork, upstreamStars = 0, upstreamUrl, prs = [] } = Astro.props;
+
+const langColors: Record<string, string> = {
+  JavaScript: '#f1e05a',
+  TypeScript: '#3178c6',
+  Python: '#3572A5',
+  Go: '#00ADD8',
+  Rust: '#dea584',
+  PHP: '#4F5D95',
+  HTML: '#e34c26',
+  CSS: '#563d7c',
+  Shell: '#89e051',
+  Vue: '#41b883',
+  Ruby: '#701516',
+  Astro: '#ff5a03',
+  SCSS: '#c6538c',
+  Makefile: '#427819',
+};
+---
+
+<div class="repo-card">
+  <div class="repo-header">
+    <a href={url} target="_blank" rel="noopener" class="repo-name">{name}</a>
+    {isFork && upstreamStars > 0 && (
+      <span class="upstream-stars">
+        <i class="fas fa-star"></i> {upstreamStars.toLocaleString()}
+      </span>
+    )}
+  </div>
+
+  {description && <p class="description">{description}</p>}
+
+  {isFork && prs.length > 0 && (
+    <ul class="pr-list">
+      {prs.slice(0, 3).map(pr => (
+        <li>
+          <a href={pr.url} target="_blank" rel="noopener" class="pr-link">
+            <i class={`fas fa-code-branch ${pr.merged ? 'merged' : pr.state === 'open' ? 'open' : 'closed'}`}></i>
+            {pr.title}
+          </a>
+        </li>
+      ))}
+    </ul>
+  )}
+
+  <div class="repo-meta">
+    {languages.length > 0 && (
+      <div class="languages">
+        {languages.map(lang => (
+          <span class="language">
+            <span class="lang-dot" style={`background: ${langColors[lang] || '#8b8b8b'}`}></span>
+            {lang}
+          </span>
+        ))}
+      </div>
+    )}
+    {!isFork && stars > 0 && (
+      <span class="stars">
+        <i class="fas fa-star"></i> {stars}
+      </span>
+    )}
+    {!isFork && forks > 0 && (
+      <span class="forks">
+        <i class="fas fa-code-branch"></i> {forks}
+      </span>
+    )}
+  </div>
+</div>
+
+<style>
+  .repo-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.2s ease;
+  }
+
+  .repo-card:hover { border-color: #333; }
+
+  .repo-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .repo-name {
+    font-family: "Roboto Mono", monospace;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .repo-name:hover { color: var(--accent-hover); }
+
+  .upstream-stars {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    font-family: "Roboto Mono", monospace;
+    white-space: nowrap;
+  }
+
+  .upstream-stars i { color: #f0c674; margin-right: 0.25rem; }
+
+  .description {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .pr-list {
+    list-style: none;
+    margin: 0 0 0.75rem 0;
+    padding: 0;
+    font-size: 0.8rem;
+  }
+
+  .pr-list li {
+    margin-bottom: 0.4rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .pr-link {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .pr-link:hover { color: var(--accent); }
+
+  .pr-link i {
+    margin-right: 0.4rem;
+    font-size: 0.7rem;
+  }
+
+  .pr-link i.merged { color: #a371f7; }
+  .pr-link i.open { color: #3fb950; }
+  .pr-link i.closed { color: #f85149; }
+
+  .repo-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: auto;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    font-family: "Roboto Mono", monospace;
+  }
+
+  .languages {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .language {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  .lang-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+
+  .stars, .forks {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .stars i, .forks i { font-size: 0.7rem; }
+</style>
