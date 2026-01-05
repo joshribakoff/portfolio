@@ -116,7 +116,18 @@ const base = import.meta.env.BASE_URL;
     font-weight: 600;
   }
 
-  
+  @media (max-width: 600px) {
+    nav {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .home-link {
+      flex: none;
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
   main {
     max-width: 960px;
     margin: auto;
