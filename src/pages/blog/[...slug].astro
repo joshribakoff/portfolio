@@ -36,6 +36,7 @@ function formatDate(dateStr: string) {
   <article>
     <header>
       <h1>{post.data.title}</h1>
+      {post.data.description && <p class="subtitle">{post.data.description}</p>}
       <p class="date">{formatDate(post.data.date)}</p>
     </header>
     <section class="content">
@@ -73,6 +74,13 @@ function formatDate(dateStr: string) {
     margin-bottom: 0;
   }
 
+  .subtitle {
+    color: var(--text-primary);
+    font-size: 1.3rem;
+    margin: 0.75rem 0 0 0;
+    opacity: 0.85;
+  }
+
   .date {
     color: var(--accent);
     font-family: "Roboto Mono", monospace;
@@ -83,6 +91,80 @@ function formatDate(dateStr: string) {
   .content {
     margin-top: 2rem;
     color: var(--text-primary);
+  }
+
+  /* Image styling for MDX content */
+  .content :global(img) {
+    display: block;
+    margin: 1.5rem auto;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+  }
+
+  /* Side-by-side image pairs */
+  .content :global(.image-row) {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin: 1.5rem 0;
+  }
+
+  .content :global(.image-row img) {
+    margin: 0;
+    flex: 1 1 auto;
+    min-width: 200px;
+    max-width: 400px;
+  }
+
+  /* Float image left with text wrap */
+  .content :global(.image-left) {
+    float: left;
+    margin: 0.5rem 1.5rem 1rem 0;
+    max-width: 300px;
+  }
+
+  /* Float image right with text wrap */
+  .content :global(.image-right) {
+    float: right;
+    margin: 0.5rem 0 1rem 1.5rem;
+    max-width: 300px;
+  }
+
+  /* Clear floats */
+  .content :global(.clear) {
+    clear: both;
+  }
+
+  /* Smaller accent images */
+  .content :global(.image-small) {
+    max-width: 350px;
+  }
+
+  /* Medium images */
+  .content :global(.image-medium) {
+    max-width: 500px;
+  }
+
+  @media (max-width: 600px) {
+    .content :global(.image-left),
+    .content :global(.image-right) {
+      float: none;
+      margin: 1.5rem auto;
+      max-width: 100%;
+    }
+
+    .content :global(.image-row) {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .content :global(.image-row img) {
+      max-width: 100%;
+    }
   }
 
   nav {

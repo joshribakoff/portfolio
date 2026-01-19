@@ -1,0 +1,157 @@
+---
+title: "From Skeptic to Practitioner"
+description: "Why I'm Grinding LeetCode in 2026"
+date: "2026-01-19"
+---
+
+import { Image } from "astro:assets";
+import meetupCrowd from "../../assets/blog/skeptic-to-practitioner/meetup-crowd.png";
+import longestRun from "../../assets/blog/skeptic-to-practitioner/longest-run-3-week-pr.jpeg";
+import blockTeaching from "../../assets/blog/skeptic-to-practitioner/block-teaching-ai.jpeg";
+import contextEngineering from "../../assets/blog/skeptic-to-practitioner/context-engineering-talk.jpeg";
+import buildingOnSand from "../../assets/blog/skeptic-to-practitioner/building-on-sand.jpeg";
+import productivityGel from "../../assets/blog/skeptic-to-practitioner/productivity-gel.png";
+import skillMdRobot from "../../assets/blog/skeptic-to-practitioner/skill-md-robot.png";
+import measuringTire from "../../assets/blog/skeptic-to-practitioner/measuring-tire.png";
+import skeletonCoder from "../../assets/blog/skeptic-to-practitioner/skeleton-coder.png";
+import claudeSwarm from "../../assets/blog/skeptic-to-practitioner/claude-swarm.png";
+import linkedinHype from "../../assets/blog/skeptic-to-practitioner/linkedin-hype.png";
+import neovimClaude from "../../assets/blog/skeptic-to-practitioner/neovim-claude-leetcode.jpeg";
+
+I wasn't using AI coding in 2025. The tools couldn't keep a recipe straight without mixing up ingredients. I'd watch it confidently produce code that looked right but wasn't. False confidence wrapped in fluent prose.
+
+Then Opus 4.5 dropped.
+
+On paper, it's a few dozen percentage points better. In practice, it crossed a threshold. I got it running for over an hour on real tasks. Not toy problems. Actual multi-file refactors, test suites, feature implementations. Something shifted.
+
+I was intrigued enough to show up at the Claude Code meetup in San Francisco, now called Agents Anonymous, at Sentry headquarters. What I found there changed how I think about all of this.
+
+<Image src={meetupCrowd} alt="The crowd at Agents Anonymous meetup" width={800} />
+
+## The Hype Recursion Problem
+
+No blog post about AI would be complete without addressing the elephant in the room: everyone is trying AI for the first time and then using AI to post about their experiences, recursively hallucinating hype all over LinkedIn.
+
+<div class="image-row">
+  <Image src={linkedinHype} alt="1000% CONFIRMED - infinite PRs, infinite commits, thought leader" width={350} />
+  <Image src={claudeSwarm} alt="Fractal swarm of ClaudeCode robots" width={350} />
+</div>
+
+I made my share of viral posts. I compared the AI rollouts across the industry to the guy who invented Vaseline, eating a spoonful and saying "put it everywhere."
+
+<Image src={productivityGel} alt="100% Pure Productivity Gel - Vaseline parody" width={400} />
+
+I posted an image of a guy with three arms and got tens of thousands of impressions. Then I deleted it.
+
+Because hot takes get perceived differently by different people. They're not actual nuanced takes, which is what we need to move the industry forward. This post is the nuance that was missing.
+
+## The Mismatched Expectations Problem
+
+Some of the critiques of AI coding are quite bad. I'm guilty of this too.
+
+You ask AI to "add a health check endpoint" with some specific library in mind that implements circuit breakers, dependency checks, and graceful degradation. It gives you a route that returns `{ status: "ok" }`. Then you post about how AI doesn't understand real engineering.
+
+But are we criticizing the AI, or our own mismatched expectations? No one said the AI was going to read your mind. If you wanted the bells and whistles, you needed to ask for them.
+
+<Image src={skillMdRobot} alt="Stuffing SKILL.md files into a robot" width={400} />
+
+This is the real skill gap forming. Not "can you prompt" but "can you specify what you actually want." The people getting results aren't better at prompting. They're better at knowing what they want in the first place.
+
+## The Room at Agents Anonymous
+
+The crowd was a fascinating mix: Harvard CS students, billion-dollar founders, CEOs, happily unemployed builders having the time of their lives. Engineers who breezed through big tech interviews and built production systems at scale. Someone worked on a safety system for the same self-driving car I did, at a different company. A Cursor employee showed a screenshot of a ~500,000-line PR. People casually mentioned $10k/month in token spend. The Sentry founder demoed a product he vibe coded himself, designed to look like a Bloomberg terminal.
+
+<Image src={longestRun} alt="Cursor's longest run: 3 week continuous single agent PR" width={800} />
+
+New roles are emerging. "Context engineer" came up more than once. Prompt engineering was wave one. Orchestrating what the model knows and when is wave two.
+
+<Image src={contextEngineering} alt="Context Engineering SF talk by Dexter Horthy" width={800} />
+
+The survey results were striking: 70% Claude Code users, 85% had tried MCPs, 70% had tried skills. People casually dropped acronyms like [RPI](https://fightingwithai.com/workflow-guardrails/rpi) (read-plan-implement). The vocabulary is forming in real-time.
+
+Everyone agreed: this isn't what we'll be doing in 2027. The tools, the workflows, all transitional. They're building on sand and they know it. They just don't care.
+
+<Image src={buildingOnSand} alt="AI building sandcastles while humans struggle with concrete" width={800} />
+
+## The Spectrum
+
+It's not factions so much as a spectrum. On one end: vibe coding. Ship fast, trust the output, code is becoming obsolete anyway. On the other end: deliberate usage. Understand what you're shipping, verify the output, use AI as leverage on existing judgment.
+
+Most people are somewhere in between, and where you land depends on context. Prototyping a side project? Vibe away. Maintaining financial infrastructure? Maybe slow down.
+
+The most ambitious work I've seen on the "scale" end is Steve Yegge's. He dropped a 25-page manifesto on [Gas Town](https://github.com/steveyegge/gastown), an orchestrator that coordinates 20-30 AI coding agents at once, complete with mayors, deacons, witnesses, and refiners. It's politics, hierarchy, and process for your robots. He also built [BEADS](https://github.com/steveyegge/beads), a graph-based prompt manager that replaces your issue tracker. Instead of linear tickets, you navigate a web of interconnected prompts and tasks.
+
+Where am I landing? Closer to the deliberate end. AI doesn't replace engineering judgment. It gives you leverage on it. The ceiling is way higher than most people realize, but the failure modes are real.
+
+<Image src={blockTeaching} alt="Block: Teaching AI coding to 3k engineers" width={800} />
+
+## Documenting Patterns
+
+I've started cataloging what works at [fightingwithai.com](https://fightingwithai.com). The approach is inspired by the [Gang of Four's *Design Patterns*](https://en.wikipedia.org/wiki/Design_Patterns) book. Naming things so we can talk about them. Context management, failure modes, guardrails, prompt engineering patterns.
+
+Before pattern books, developers solved the same problems repeatedly without shared language. After, you could say "use a Factory" and everyone knew what you meant. [Martin Fowler](https://martinfowler.com/eaaCatalog/) did the same for enterprise architecture. I'm trying to do it for AI workflows. Naming patterns lets communities build shared understanding.
+
+## The Boring Infrastructure
+
+Everyone is building agent orchestrators. I'm building worktree management.
+
+[bearing.dev](https://bearing.dev) is even less exciting than it sounds. It doesn't coordinate agents or prevent branch collisions. It just tracks which branches are checked out where, so agents can work in separate folders instead of switching branches, stashing changes, and losing work. I'm expanding it to help organize plan files too, since LLMs scatter them randomly across repos. Agent orchestration might be a natural evolution someday, but for now the tooling is intentionally lightweight. I built it because I ended up with a hundred worktrees locally and needed to see what existed. Not predicting what we'll all be doing in a year. Just solving problems I have.
+
+John Lindquist's [worktree-cli](https://github.com/johnlindquist/worktree-cli) is another take on the same problem: fuzzy search, PR integration, Cursor launching. We're both just building our own tooling. You probably should too.
+
+When I hit failure modes, I went in and started adding tests. That works, but AI can create bad tests too. You can get failure modes in the tests themselves. It's turtles all the way down.
+
+This is the temptation now: tackle too many projects, spread yourself thin, get carried away with ideas and vibes, never finish anything. The tools make starting easy. Finishing still requires judgment.
+
+## The Practice Paradox
+
+Here's something that raised eyebrows at Agents Anonymous: I still practice LeetCode.
+
+There was unanimous sentiment in the room. If a company is still asking LeetCode problems, that company isn't "on their list." If someone is still coding entirely by hand... well, there were jokes.
+
+I was one of the only people willing to admit I still use a text editor occasionally.
+
+But here's my reasoning: I don't want to get rusty. I've cloned repos with solutions and articles, built tools to scrape YouTube playlists, even vibe-coded systems that synthesize my own tutorial videos using visualization tools, text-to-speech, and custom pipelines.
+
+My current setup: Claude Code and Neovim side by side in a kitty terminal split. As I type code, Claude evaluates me, doing mock interviews, coaching me on Python syntax, catching mistakes in real-time.
+
+<Image src={neovimClaude} alt="Neovim and Claude Code side by side - AI-assisted LeetCode practice" width={800} />
+
+Welcome to 2026.
+
+## The Deliberate Thesis
+
+My theme for this year: **deliberate AI use**.
+
+Not resistance. Not blind adoption. Deliberate.
+
+The people getting 10x more done aren't waiting for better models. They're building better workflows:
+
+- Splitting AI PRs into reviewable chunks
+- Running tests while AI codes, not after
+- Treating context like the scarce resource it is
+- Coordinating handoffs between agents to keep momentum
+
+But they're also thinking. Evaluating. Questioning.
+
+The interesting question isn't "does AI make you 15% faster or slower at the things you were already doing?" It's "what can you now attempt that you couldn't before?"
+
+Solo developers shipping products that used to require teams. Non-technical founders building functional prototypes. Engineers mass-refactoring legacy codebases everyone agreed to leave alone forever.
+
+## The Replacement Calculus
+
+The frontier is moving fast. If AI does come for our jobs, the people who are just prompting without reasoning about computer science will be the first to go.
+
+<Image src={skeletonCoder} alt="Skeleton typing at keyboard - the dead software engineer career" width={400} />
+
+This is why measuring AI by bug rates on controlled tasks misses the point. It's like measuring driving school by how many miles you covered during your lessons. The point isn't the lessons. The point is the Cannonball Run you can do after.
+
+<Image src={measuringTire} alt="Scientist measuring a tire while rocket car speeds away" width={600} />
+
+But you still need to know how to drive. More agents won't save you if you can't evaluate the output. The goal is to produce things, not to mediate disputes between your robot middle managers.
+
+Code quality matters. Thinking will always matter. The tools change. The fundamentals don't.
+
+---
+
+*I'm documenting AI engineering patterns at [fightingwithai.com](https://fightingwithai.com) and building worktree tooling at [bearing.dev](https://bearing.dev).*
