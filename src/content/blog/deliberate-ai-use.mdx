@@ -6,12 +6,15 @@ date: "2026-01-19"
 
 import { Image } from "astro:assets";
 import neovimClaude from "../../assets/blog/skeptic-to-practitioner/neovim-claude-leetcode.jpeg";
+import bearingTui from "../../assets/blog/deliberate-ai-use/bearing-tui.svg";
 
 At the [Agents Anonymous](https://www.linkedin.com/posts/josh-cohenzadeh_at-the-agents-anonymous-sf-meetup-last-night-activity-7417995851039420416-rWMt/) meetup, someone asked who still writes code by hand. I raised my hand. They joked we were losers. When I asked who's still doing LeetCode, a couple people laughed and said no - if a company's still asking it, they're not on their list. Others grimaced. Here's why I'm grinding LeetCode anyways.
 
 AI has limits. Some people are running [Gas Town](https://github.com/steveyegge/gastown) setups with dozens of coordinated agents or [Ralph Loops](https://ghuntley.com/ralph/) that keep feeding AI output back into itself until it dreams up the right answer. Cool experiments. But when you're trying to get real work done, use deterministic tooling where possible and AI where traditional tooling can't handle it. Otherwise you're just wasting tokens. [Use lint rules](/blog/lint-snapshots) to surface violations instead of burning context on things grep could find.
 
 There's a middle ground. Instead of agents fighting in chaos, run it like an organization where each agent operates in its own git worktree. Tools like [John Lindquist's worktree-cli](https://github.com/johnlindquist/worktree-cli) and [Bearing](https://bearing.dev) let you spin up isolated branches for parallel work.
+
+<Image src={bearingTui} alt="Bearing TUI - Terminal interface for managing git worktrees" width={800} />
 
 I'm not spinning up 30 agents for 30 worktrees. I'm staying in the loop - deciding when to background work, when to clear context, [steering](https://fightingwithai.com/workflow-guardrails/steering) interactively using the patterns I've documented. Concurrency without contention. I can have a hundred things I'm working on without the overhead of switching between them or worrying about conflicts in real time. When conflicts arise later, I just run another Claude instance to integrate the branches.
 
@@ -45,3 +48,5 @@ I built [LeetDreamer](https://github.com/joshribakoff/leetdreamer) to generate A
 </div>
 
 The frontier is moving fast and it's made of sand. But fundamentals will probably be around for a long time. Thinking will probably always matter.
+
+So I'm being deliberate.
