@@ -1,0 +1,212 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const projects = [
+  {
+    name: "Fighting With AI",
+    description: "A catalog of failure modes, patterns, and hard-won lessons for working with AI. Built with Astro and the sailkit component library.",
+    url: "https://fightingwithai.com",
+    github: "https://github.com/fightingwithai/fightingwithai",
+    tags: ["Astro", "TypeScript", "AI/ML"],
+    featured: true,
+  },
+  {
+    name: "Surf Deeper",
+    description: "Open-source surf education platform with interactive maps, forecasts, and learning resources. Built while learning to surf—and learning AI.",
+    url: "https://surfdeeper.com",
+    github: "https://github.com/surfdeeper/surfdeeper",
+    tags: ["Astro", "Maps", "Education"],
+    featured: true,
+  },
+  {
+    name: "Surfing Game",
+    description: "Canvas-based wave physics simulation exploring realistic water dynamics and surfing mechanics.",
+    github: "https://github.com/surfdeeper/surfing-game",
+    tags: ["Canvas", "WebGL", "Physics"],
+    featured: true,
+  },
+  {
+    name: "Bearing",
+    description: "Git worktree management CLI for parallel AI-assisted development. Enables multiple Claude sessions to work on isolated branches simultaneously.",
+    github: "https://github.com/joshribakoff/bearing",
+    tags: ["CLI", "Git", "Developer Tools"],
+    featured: true,
+  },
+  {
+    name: "Sailkit",
+    description: "Component library for Astro sites including compass (search), teleport (vim mode), lantern (theme toggle), atlas (magic links), and lighthouse (404 pages).",
+    github: "https://github.com/joshribakoff/sailkit",
+    tags: ["Astro", "Components", "TypeScript"],
+    featured: true,
+  },
+  {
+    name: "LeetDreamer",
+    description: "What if algorithm explanations didn't put you to sleep? Pipeline that generates narrated algorithm visualization videos—because watching a robot explain Two Pointers in 37 seconds beats staring at code for 3 hours.",
+    github: "https://github.com/joshribakoff/leetdreamer",
+    tags: ["Python", "Video", "Algorithms"],
+    featured: false,
+  },
+  {
+    name: "LeetDeeper",
+    description: "Learning algorithms in public. Staying sharp in the age of AI coding when everyone's gonna default to not thinking. Curated submodules from NeetCode, Labuladong's algorithm book, and community solutions—complete with notes, workflows, and test runners.",
+    github: "https://github.com/joshribakoff/leetdeeper",
+    tags: ["Algorithms", "Python", "Learning"],
+    featured: false,
+  },
+];
+---
+
+<Layout title="Projects - Josh Ribakoff">
+  <div class="projects-header">
+    <h1>Side Projects</h1>
+    <p class="subtitle">
+      Building in public. Exploring AI tooling, developer experience, and whatever catches my interest.
+    </p>
+  </div>
+
+  <div class="project-list">
+    {projects.map((project) => (
+      <article class="project">
+        <div class="project-header">
+          <h2>{project.name}</h2>
+          <div class="project-links">
+            {project.url && (
+              <a href={project.url} target="_blank" rel="noopener" class="link-badge">
+                <i class="fas fa-external-link-alt"></i> Visit
+              </a>
+            )}
+            {project.github && (
+              <a href={project.github} target="_blank" rel="noopener" class="link-badge">
+                <i class="fab fa-github"></i> GitHub
+              </a>
+            )}
+          </div>
+        </div>
+        <p class="description">{project.description}</p>
+        <div class="tags">
+          {project.tags.map((tag) => (
+            <span class="tag">{tag}</span>
+          ))}
+        </div>
+      </article>
+    ))}
+  </div>
+</Layout>
+
+<style>
+  .projects-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .projects-header h1 {
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    max-width: 600px;
+  }
+
+  .project-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .project {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .project:hover {
+    border-color: #333;
+    transform: translateY(-2px);
+  }
+
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .project h2 {
+    font-size: 1.3rem;
+    margin: 0;
+  }
+
+  .project-links {
+    display: flex;
+    gap: 0.5rem;
+    flex-shrink: 0;
+  }
+
+  .link-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.8rem;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+  }
+
+  .link-badge:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .link-badge i {
+    font-size: 0.8rem;
+  }
+
+  .description {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tag {
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    padding: 0.25rem 0.6rem;
+    border-radius: 3px;
+    font-size: 0.75rem;
+    font-family: "Roboto Mono", monospace;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 600px) {
+    .project-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .project-links {
+      width: 100%;
+    }
+
+    .link-badge {
+      flex: 1;
+      justify-content: center;
+    }
+  }
+</style>
