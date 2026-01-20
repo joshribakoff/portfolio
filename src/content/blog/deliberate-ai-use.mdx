@@ -1,0 +1,39 @@
+---
+title: "Deliberate AI Use"
+description: "AI can write code now. Thinking still matters."
+date: "2026-01-19"
+---
+
+import { Image } from "astro:assets";
+import neovimClaude from "../../assets/blog/skeptic-to-practitioner/neovim-claude-leetcode.jpeg";
+
+At the [Agents Anonymous](https://www.linkedin.com/posts/josh-cohenzadeh_at-the-agents-anonymous-sf-meetup-last-night-activity-7417995851039420416-rWMt/) meetup, someone asked who still writes code by hand. I raised my hand. They joked we were losers. When I asked who's still doing LeetCode, a couple people laughed and said no - if a company's still asking it, they're not on their list. Others grimaced. Here's why I'm grinding LeetCode anyways.
+
+AI has limits. Some people are running [Gas Town](https://github.com/steveyegge/gastown) setups with dozens of coordinated agents or [Ralph Loops](https://ghuntley.com/ralph/) that keep feeding AI output back into itself until it dreams up the right answer. Cool experiments. But when you're trying to get real work done, use deterministic tooling where possible and AI where traditional tooling can't handle it. Otherwise you're just wasting tokens. [Use lint rules](/blog/lint-snapshots) to surface violations instead of burning context on things grep could find.
+
+Sub-agents don't magically solve [the context limit problem](https://fightingwithai.com/failure-modes/context-collapse). I watched an agent update a config file with the path to ffmpeg, then immediately spawn a sub-agent that started grepping the filesystem to find it. The information was right there. It just got lost in the handoff.
+
+If you can't reason through problems yourself, you can't tell when AI messes up.
+
+## I'm Still Grinding LeetCode in 2026
+
+I solve LeetCode problems while vibing with Claude Code. We go back and forth. I write code, it spots issues, I fix them. The AI doesn't solve it for me. I'm driving, it's pair programming.
+
+My workflow: I prompt an LLM with a problem number. It searches the web, reads the problem, creates the scaffolding and test cases. It knows the solutions (or can find them online and fact check if needed), writes the tests, spins up a blank file, runs the tests for me. Sometimes I even code with my voice - "create a stack called S, check if it's empty and if not, push Y."
+
+<Image src={neovimClaude} alt="Neovim and Claude Code side by side - AI-assisted LeetCode practice" width={800} />
+
+I built [LeetDreamer](https://github.com/joshribakoff/leetdreamer) to generate AI-narrated solution videos and [LeetDeeper](https://github.com/joshribakoff/leetdeeper) (a collection of submodules for knowledge bases, tooling for scraping, and [local solution runners](https://github.com/tusharsadhwani/python_leetcode_runner) with agentic problem generation from existing repositories). I [seed the context](https://fightingwithai.com/context-expanding/context-seeding) with scraped content, then get instant AI coaching with video explanations.
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 2rem 0;">
+  <iframe
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+    src="https://www.youtube.com/embed/6jwh-N3D8l4"
+    title="LeetDreamer: Two Pointers Algorithm Visualization"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
+  </iframe>
+</div>
+
+The frontier is moving fast and it's made of sand. But fundamentals will probably be around for a long time. Thinking will probably always matter.
