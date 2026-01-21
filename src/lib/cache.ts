@@ -39,16 +39,10 @@ export async function cachedFetch(url: string): Promise<any> {
   // Fetch and cache
   const res = await fetch(url, { headers });
   if (!res.ok) {
-    console.warn(`[cache] Fetch failed for ${url}: ${res.status} ${res.statusText}`);
-    return null;
+    throw new Error(`Fetch failed for ${url}: ${res.status} ${res.statusText}`);
   }
 
-  try {
-    const data = await res.json();
-    writeFileSync(cachePath, JSON.stringify({ timestamp: Date.now(), data }));
-    return data;
-  } catch (e) {
-    console.warn(`[cache] Failed to parse JSON for ${url}:`, e);
-    return null;
-  }
+  const data = await res.json();
+  writeFileSync(cachePath, JSON.stringify({ timestamp: Date.now(), data }));
+  return data;
 }
