@@ -10,4 +10,4 @@ So I built [LeetDeeper](https://leetdeeper.com/). Instead of grinding binary tre
 
 Top labs care about whether you understand how systems behave, not whether you can reproduce a memorized solution. And AI-generated code often looks correct while hiding subtle execution bugs. If you've never built these primitives yourself, you won't catch those issues in review.
 
-LeetCode trains pattern recall. LeetDeeper trains runtime intuition. If you're preparing for modern infrastructure teams, that's a meaningful difference.
+LeetCode is still important. Plenty of companies test algorithmic thinking and pattern recall, and you should be sharp on it. But some teams, especially infrastructure and AI labs, weight runtime intuition more heavily. LeetCode trains the first. LeetDeeper trains the second. Different companies care about different things, and your prep should reflect that.
