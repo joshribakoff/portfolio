@@ -1,3 +1,3 @@
-This is my work in progress portfolio site. It uses gatsby https://www.gatsbyjs.org/
+This is my portfolio site built with [Astro](https://astro.build/).
 
-View the word in progress website here https://jshpro2.gitlab.io/portfolio/.
+View the site at https://joshribakoff.github.io/portfolio/.
